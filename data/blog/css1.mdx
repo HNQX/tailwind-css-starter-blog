@@ -1,0 +1,2976 @@
+---
+title: '10 good css effect'
+date: '2023-11-02'
+tags: ['hello']
+draft: false
+summary: '分享十几个 CSS 开发者必须知道的有趣 CSS 效果代码'
+images: []
+---
+
+<TOCInline toc={props.toc} exclude="Introduction" />
+
+
+一、实现线性渐变的文字
+-----------
+
+实例描述：在网页制作时，可以通过对文字颜色的设置来实现网页的特殊效果。本实例将使用 CSS3 实现文字线性渐变的效果。运行实例，在页面中会输出一串线性渐变的文字
+
+人生苦短，我用 Python
+
+，结果如下图所示：
+
+![](https://pic1.zhimg.com/v2-4e27ef53b10f5c44771ce007e5e794cb_r.jpg?source=2c26e567)
+
+技术要点：本实例主要使用了 CSS3 中的 linear-gradient() 函数，该函数用于创建一个线性渐变的图像。语法格式如下：
+
+```
+background:linear-gradient(direction, color-stop1, color-stop2, …)
+
+/*参数说明：
+1. direction：设置渐变的方向，可以使用角度值。
+2. color-stop1, color-stop2, …：指定渐变的起止颜色。*/
+
+```
+
+代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现线性渐变的文字</title>
+    <style>
+        .content{
+           margin-top: 30px;
+           font-size: 64px;
+           background:-webkit-linear-gradient(top, #FF0000, #00FF00);/*设置线性渐变*/
+           /*为了支持更多的浏览器*/
+           -webkit-background-clip: text;/*背景被裁剪到文字*/
+           -webkit-text-fill-color: transparent;/*设置文字的填充颜色*/
+        }
+    </style>
+</head>
+<body>
+    <div>
+        人生苦短，我用Python
+    </div>
+</body>
+</html>
+
+```
+
+二、制作文字阴影效果
+----------
+
+实例描述：结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-0681b91e6b402c29adb7826e8dc1af00_r.jpg?source=2c26e567)
+
+  
+技术要点：本实例主要使用了 CSS3 中的 text-shadow 属性，该属性用于向文本设置阴影。语法格式如下：
+
+```
+text-shadow: h-shadow v-shadow blur color;
+/*参数说明：
+h-shadow：必选参数，用于设置水平阴影的位置，可以为负值。
+v-shadow：必选参数，用于设置垂直阴影的位置，可以为负值。
+blur：可选参数，用于设置模糊的距离。
+color：可选参数，用于设置阴影的颜色。*/
+
+```
+
+代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>制作文字阴影效果</title>
+    <style>
+        .milky{
+           font-size: 80px;   /*设置文字大小*/
+           color:#3366FF;  /*设置文字颜色*/
+           text-shadow: 0 8px 10px #6699FF;  /*设置文字阴影*/                  
+           font-weight: bolder;  /*设置文字宽度*/                              
+           text-align: center;  /*设置文字居中*/                              
+
+        }
+    </style>
+</head>
+<body>
+    <div>让优秀成为一种习惯</div>
+</body>
+</html>
+
+```
+
+三、制作文字模糊发散效果
+------------
+
+实例描述：结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-42202f9a568d66ac571d6b69fde0d7ca_r.jpg?source=2c26e567)
+
+  
+技术要点：在本实例中，为文字设置模糊发散的效果同样需要应用 CSS3 中的 text-shadow 属性，应用该属性为文字设置阴影，并且不设置阴影在水平方向和垂直方向的偏移值，同时需要设置文本的颜色为透明状态。  
+代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        p{
+           font-family:"微软雅黑";   /*设置字体*/
+           font-size: 50px;   /*设置文字大小*/
+           color:transparent;  /*设置文字颜色透明*/
+           text-shadow: 0 0px 6px #66FF99;  /*设置文字阴影*/
+           /*text-align: center;   /*设置文字居中*/*/
+        }
+        </style>
+</head>
+
+<body>
+    <p>千里之行始于足下</p>
+</body>
+</html>
+
+```
+
+四、制作 3D 立体文字
+------------
+
+实例描述：在一些动画的网站中，经常会看到一些 3D 效果的文字，这样可以使页面更有立体感。本实例将在页面中制作一个 3D 效果的文字，结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-2d64b7520cc1cb54f7562b3a0acb763a_r.jpg?source=2c26e567)
+
+  
+技术要点：在本实例中，实现文字的 3D 效果同样使用了 CSS3 中的 text-shadow 属性，通过该属性向文本添加多个阴影，多个阴影之间用逗号分隔。  
+代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>制作3D立体文字</title>
+    <style>
+        body{
+           background:#CCCCCC; /*设置页面背景颜色*/
+           color:#FFFFFF; /*设置文字颜色*/
+           text-align:center/*设置文字居中*/
+        }
+        .threeD{
+           font-size:80px; /*设置字体大小*/
+           font-weight:800; /*设置字体粗细*/
+           text-shadow:1px 0px #009916, 1px 2px #006615, 3px 1px #009916,
+                    2px 3px #006615, 4px 2px #009916, 4px 4px #006615,
+                    5px 3px #009916, 5px 5px #006615, 7px 4px #009916,
+                    6px 6px #006615, 8px 5px #009916, 7px 7px #006615,
+                    9px 6px #009916, 9px 8px #006615, 11px 7px #009916/*设置文字阴影*/
+        }
+
+    </style>
+</head>
+<body>
+    <div>想你的液</div>
+</body>
+</html>
+
+```
+
+五、以两种不同颜色显示文字
+-------------
+
+实例描述：本实例将实现以两种不同的颜色显示一行文本的上、下两部分。运行实例，在页面中输出 “诗与远方” 四个文字，文字的上半部分以橙色显示，下半部分以绿色显示，结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-60f704886eb5b787be680bc214e1d16e_r.jpg?source=2c26e567)
+
+  
+技术要点：在本实例中，为了使文字的上半部分显示为橙色，下半部分显示为绿色，需要在外层和内层标签中分别定义两组文字，将外层标签中的文字颜色设置为绿色，将内层标签中的文字颜色设置为橙色，并将两组文字进行叠加，实现叠加的效果需要将内层标签的 position 属性值定义为 absolute。另外，将内层标签设置为指定高度，并隐藏超出指定高度部分的内容，实现隐藏的效果应用了 CSS 中的 overflow 属性。overflow 属性用于定义溢出元素内容区的内容会如何处理。该属性的各属性值说明如下表所示：
+
+<table data-draft-node="block" data-draft-type="table" data-size="normal"><tbody><tr><th>值</th><th>描述</th></tr><tr><td>visible</td><td>默认值，表示内容不会被修剪，会呈现在元素框之外</td></tr><tr><td>hidden</td><td>表示内容会被修剪，并且其余内容不可见</td></tr><tr><td>scroll</td><td>表示内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容</td></tr><tr><td>auto</td><td>表示如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容</td></tr><tr><td>inherit</td><td>表示应该从父元素继承 overflow 属性的值</td></tr></tbody></table>
+
+代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>以两种不同颜色显示文字</title>
+    <style>
+        p{
+           font-family:"微软雅黑";   /*设置字体*/
+           font-size: 80px;   /*设置文字大小*/
+           color:green;    /*设置文字颜色*/
+           text-align: center;  /*设置文字居中*/
+        }
+
+        .half{
+           height:60px;    /*设置元素高度*/
+           position:absolute;  /*绝对定位*/
+           overflow:hidden;    /*隐藏溢出部分内容*/
+           color:orange;  /*设置文字颜色*/
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <span>诗与远方</span>诗与远方
+    </p>
+</body>
+</html>
+
+```
+
+六、制作镂空文字
+--------
+
+实例描述：在浏览页面时，经常会看到一些文字以空心的效果进行显示。本实例将通过 CSS3 来实现这一效果。该实例运行结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-1c27527168e3e09b15e9f4ea89123507_r.jpg?source=2c26e567)
+
+  
+技术要点：在本实例中，实现文字的镂空效果主要应用了 CSS3 中的 text-stroke 属性，通过该属性可以设置文字的描边效果。语法格式如下：
+
+```
+text-stroke:[text-stroke-width] || [text-stroke-color]
+/*参数说明：
+text-stroke-width：设置文字的描边厚度。
+text-stroke-color：设置文字的描边颜色。*/
+
+```
+
+代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>制作镂空文字</title>
+    <style type="text/css">
+        body{
+           /*background:#FFCCFF; /*设置页面背景颜色*/
+           text-align:center; /*设置文字居中*/
+        }
+        div{
+           font-family:"华文彩云";/*设置字体*/
+           font-size:64px; /*设置字体大小*/
+           font-weight:bolder; /*设置字体粗细*/
+           -webkit-text-stroke:1px #0000FF;        /*文字描边*/
+           -webkit-text-fill-color:transparent;    /*设置文字的填充颜色*/
+        }
+    </style>
+</head>
+<body>
+    <div>生活充满了阳光</div>
+</body>
+</html>
+
+```
+
+七、实现文字的图案填充效果
+-------------
+
+实例描述：所谓文字的图案填充效果是指用指定的图案填充文字，在页面中采用这种效果，可以实现美化页面的目的。结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-f3f0280de7abfbf2ee1b43c0b102c569_r.jpg?source=2c26e567)
+
+  
+技术要点：在本实例中，首先需要实现文字的镂空效果，然后通过设置元素的背景图像实现文字的图案填充效果。设置元素背景图像的属性是 background-image，该属性可以设置的可能值有三个，说明如下：url(‘URL’)：用来设置图像的 URL 路径。none：默认值，不显示背景图像。inherit：规定应该从父元素继承 background-image 属性的设置。  
+代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现文字的图案填充效果</title>
+    <style type="text/css">
+        body{
+           text-align:center;
+        }
+        div{
+           margin:20px;
+           font-size:64px;
+           font-weight:bolder;
+           background-image:url("./bg/bg.gif");            /*设置背景图像*/
+           -webkit-background-clip:text;            /*背景被裁剪到文字*/
+           -webkit-text-stroke:1px #0000FF;        /*文字描边*/
+           -webkit-text-fill-color:transparent;    /*设置文字的填充颜色*/
+        }
+</style>
+</head>
+<body>
+    <div>读书使人心明眼亮</div>
+</body>
+</html>
+
+```
+
+八、模拟古诗垂直显示文本
+------------
+
+实例描述：本实例将模拟古诗的风格以垂直方式从右向左显示文本。运行实例，在页面中输出古诗《山行》，诗句以垂直方式进行展示，阅读的顺序为从右向左，结果如下图所示：  
+
+![](https://pic1.zhimg.com/v2-7fa77822112f2a91bcdfbb54bcc29039_r.jpg?source=2c26e567)
+
+  
+技术要点：在本实例中，实现以垂直方式从右向左显示文本主要应用了 CSS 中的 writing-mode 属性。该属性定义了文本在水平或垂直方向上如何排布。该属性主要有 3 个属性值，各个属性值的说明如下所示。horizontal-tb：默认值，表示水平方向从上到下的书写方式。vertical-rl：表示垂直方向从右向左的书写方式。vertical-lr：表示垂直方向从左向右的书写方式。  
+代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟古诗垂直显示文本</title>
+    <style type="text/css">
+        div{
+           font-family:"华文楷体";  /*设置字体*/
+           width:400px;    /*设置元素宽度*/
+           margin:10px auto;   /*设置外边距*/
+           padding:30px;   /*设置内边距*/
+           background:lightblue;  /*设置背景颜色*/
+           font-size: 36px;  /*设置文字大小*/
+           color:green;  /*设置文字颜色*/
+           text-align: center; /*设置文字居中*/
+           border:1px solid #CCCCCC;  /*设置元素边框*/
+           box-shadow:3px 3px 6px #999999;  /*设置边框阴影*/
+           writing-mode:vertical-rl;  /*设置以垂直方式从右向左显示*/
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h4>唐杜牧《山行》</h4>
+        <p>
+            远上寒山石径斜，<br>白云生处有人家。<br>停车坐爱枫林晚，<br>霜叶红于二月花。
+        </p>
+    </div>
+</body>
+</html>
+
+```
+
+九、实现文字的倾斜效果
+-----------
+
+实例描述：在制作网页时，为了使网页更具有个性化的视觉效果，可以在页面中设置倾斜的文字。本实例将通过 CSS3 来实现文字倾斜的效果。运行结果如下图所示：  
+
+![](https://pic1.zhimg.com/v2-d0b2e50833afaaa9c0c86147319aa00d_r.jpg?source=2c26e567)
+
+  
+技术要点：在本实例中，实现文字倾斜的效果应用了 CSS3 中的 transform 属性，设置元素倾斜角度的格式为：
+
+```
+transform:skew(x-angle,y-angle)
+/*当设置一个参数时，表示垂直方向的倾斜角度；当设置两个参数时，第一个参数表示垂直方向的倾斜角度，
+第二个参数表示水平方向的倾斜角度。*/
+
+```
+
+代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现文字的倾斜效果</title>
+    <style>
+        div{
+           width:420px; /*设置元素宽度*/
+           margin:50px auto; /*设置元素外边距*/
+           font-size:36px; /*设置字体大小*/
+           font-weight:bolder; /*设置字体粗细*/
+           color:#9966FF; /*设置文字颜色*/
+           -webkit-transform:skew(30deg);/*设置倾斜角度*/
+        }
+    </style>
+</head>
+<body>
+    <div>让优秀成为一种习惯</div>
+</body>
+</html>
+
+```
+
+十、实现文字的荧光闪烁效果
+-------------
+
+实例描述：本实例将使用 CSS3 实现文字的荧光闪烁效果。结果如下图所示：  
+
+![](https://pic1.zhimg.com/v2-f6d30ce9b21462201becb8c1f5a46ad5_r.jpg?source=2c26e567)
+
+  
+技术要点：在本实例中，实现文字的荧光闪烁效果使用了 CSS3 中的 animation 属性，通过该属性可以为指定元素设置动画。animation 属性的语法如下：
+
+```
+animation: name duration timing-function delay iteration-count direction;
+
+```
+
+参数说明如下表所示：
+
+<table data-draft-node="block" data-draft-type="table" data-size="normal"><tbody><tr><th>参数</th><th>描述</th></tr><tr><td>name</td><td>规定需要绑定到选择器的 keyframe 名称</td></tr><tr><td>duration</td><td>规定完成动画需要的时间，单位为秒</td></tr><tr><td>timing-function</td><td>规定动画的速度曲线</td></tr><tr><td>delay</td><td>规定在动画开始之前的延迟</td></tr><tr><td>iteration-count</td><td>规定动画应该播放的次数</td></tr><tr><td>direction</td><td>规定是否应该轮流反向播放动画</td></tr></tbody></table>
+
+代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现文字的荧光闪烁效果</title>
+    <style type="text/css">
+        div {
+            text-align: center;
+        }
+        .a{
+           color:#0000FF; /*设置文字颜色*/
+           text-decoration: none;
+           font-size:5em; /*设置字体大小*/
+           font-family:"微软雅黑";/*设置字体*/
+           -webkit-animation: shine 2.4s infinite;/*设置动画*/
+        }
+        @-webkit-keyframes shine{/*创建动画*/
+            0%,100%{ color:#fff;text-shadow:0 0 10px #0000FF,0 0 10px #0000FF; }
+            50%{ text-shadow:0 0 10px #0000FF,0 0 40px #0000FF; }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="javascript:void(0);">陪你看日出</a>
+    </div>
+</body>
+</html>
+
+```
+
+十一、实现文字的舞台灯光效果
+--------------
+
+实例描述：在网页特效中，在文字上面可以用灯光使文字具有动态照明的效果。运行结果如下图所示：  
+
+![](https://pic1.zhimg.com/v2-ce637c94e753e8be2aa0028d5a8162a3_r.jpg?source=2c26e567)
+
+  
+技术要点：本实例主要使用了 CSS3 中的 linear-gradient() 函数实现文字颜色的线性渐变，并使用 animation 属性实现灯光照射的动态效果。  
+代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现文字的舞台灯光效果</title>
+    <style>
+        .bg{
+            background: #000; /*设置元素背景颜色*/
+            width: 1000px; /*设置元素宽度*/
+            height: 300px; /*设置元素高度*/
+            margin: 0 auto; /*设置元素外边距*/
+            padding-top: 100px; /*设置元素上内边距*/
+        }
+        .shine{
+            width: 1000px;
+            font-family: "Microsoft YaHei";
+            font-size: 60px;
+            text-align: center;
+            background: -webkit-linear-gradient(left, #0f0, #00f) 0 0 no-repeat;/*设置线性渐变*/
+            -webkit-background-size: 160px;                        /*设置背景大小*/
+            -webkit-background-clip: text;                            /*背景被裁剪到文字*/
+            -webkit-text-fill-color: rgba(255, 255, 255, 0.3);        /*设置文字的填充颜色*/
+            -webkit-animation: shine 3s infinite;                    /*设置动画*/
+        }
+        @-webkit-keyframes shine{   /*创建动画*/
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: 100% 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>无人做你的光芒就自己照亮前方
+        </p>
+    </div>
+</body>
+</html>
+
+```
+
+十二、制作发光文字
+---------
+
+实例描述：在浏览网页时，经常会看见一些文字具有发光的效果。本实例将通过 CSS3 来制作发光文字。运行结果如下图所示：  
+
+![](https://pica.zhimg.com/v2-03e25640bab2e6d84a649414d5b5b510_r.jpg?source=2c26e567)
+
+  
+技术要点：本实例主要使用了 CSS3 中的 text-shadow 属性为文字设置阴影，再应用 animation 属性为文字设置动画，最后应用 @keyframes 规则创建动画，实现文字发光的效果。  
+代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>制作发光文字</title>
+    <style type="text/css">
+        .box{
+           margin:20px auto; /*设置元素外边距*/
+           text-align: center;
+        }
+        .shine{
+           font-size:5em; /*设置字体大小*/
+           font-weight:bolder; /*设置字体粗细*/
+           color:#FFFFFF; /*设置文字颜色*/
+           cursor:pointer; /*设置光标形状*/
+           -webkit-animation:light 1.5s ease-in-out infinite alternate;/*设置动画*/
+        }
+        @-webkit-keyframes light{/*创建动画*/
+           from{
+               text-shadow:0 0 10px #fff,
+                              0 0 20px #fff,
+                              0 0 30px #fff,
+                              0 0 40px #0000FF,
+                              0 0 70px #0000FF,
+                              0 0 80px #0000FF,
+                              0 0 100px #0000FF,
+                              0 0 150px #0000FF;
+           }
+           to{
+               text-shadow:0 0 5px #fff,
+                              0 0 10px #fff,
+                              0 0 15px #fff,
+                              0 0 20px #0000FF,
+                              0 0 35px #0000FF,
+                              0 0 40px #0000FF,
+                              0 0 50px #0000FF,
+                              0 0 75px #0000FF;
+           }
+
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <a>是金子总会发光</a>
+    </div>
+</body>
+</html>
+
+```
+
+十三、实现立体旋转的文字
+------------
+
+1、实例描述：目前，很多网站中都会用立体的动态文字作为标题或广告语，这样可以使页面更具有可观赏性，给浏览者以动态的空间感。结果如下图所示：  
+
+![](https://pica.zhimg.com/v2-1398e406422871083851653650f7adf4_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，实现文字的旋转效果主要应用了 CSS3 中的 transform 属性，通过该属性可以向元素应用 2D 或 3D 转换。该属性允许对元素进行旋转、缩放、移动或倾斜。如果定义元素沿着 X 轴的 3D 旋转，需要将该属性值设置为 rotateX(angle)，如果定义元素沿着 Y 轴的 3D 旋转，需要将该属性值设置为 rotateY(angle)，如果定义元素沿着 Z 轴的 3D 旋转，需要将该属性值设置为 rotateZ(angle)，小括号中的 angle 表示旋转的角度。代码如下：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现立体旋转的文字</title>
+    <style type="text/css">
+        body{
+           background:#000; /*设置页面背景颜色*/
+        }
+        h1{
+           margin-top:100px; /*设置元素上外边距*/
+           text-align:center; /*设置文字居中*/
+           color:#00FFFF; /*设置文字颜色*/
+           font-size:64px; /*设置字体大小*/
+           -webkit-transform-style:preserve-3d;            /*设置元素保留3D位置*/
+           -webkit-animation:run  ease-in-out 9s infinite;    /*设置动画*/
+        }
+        @-webkit-keyframes run{                            /*创建动画*/
+           0%{
+              -webkit-transform:rotateX(-5deg) rotateY(0);
+           }
+           50%{
+              -webkit-transform:rotateX(0) rotateY(180deg);
+           }
+           100%{
+              -webkit-transform:rotateX(5deg) rotateY(360deg);
+           }
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>成功属于立刻行动的人</h1>
+</body>
+</html>
+
+```
+
+十四、文字翻转动画效果
+-----------
+
+1、实例描述：本实例实现文字翻转的动画效果。运行结果如下图所示：  
+
+![](https://pica.zhimg.com/v2-651210041d71067f6fdbd8e0f65f140a_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，实现文字动态翻转的效果同样应用了 CSS3 中的 transform 属性，在该属性中，通过定义元素沿着 X 轴旋转的角度和沿着 Y 轴旋转的角度，并应用 animation 属性设置动画，从而实现文字的翻转特效。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文字翻转动画效果</title>
+    <style type="text/css">
+        .layer {
+          width: 100%;/*设置元素宽度*/
+          height: 100%;/*设置元素高度*/
+          position: absolute;
+          font-size:64px; /*设置字体大小*/
+          white-space: pre; /*设置元素内的空白*/
+          text-align: center; /*设置文字居中*/
+          top: 50px;
+          color: #9966FF; /*设置文字颜色*/
+          letter-spacing: -2px; /*设置字符间距*/
+          text-shadow: 4px 0 2px; /*设置文字阴影*/
+          -webkit-transform-style: preserve-3d;  /*设置元素保留3D位置*/
+          -webkit-animation: a1 3s infinite alternate ease-in-out;    /*设置动画*/
+          -webkit-animation-fill-mode: forwards;
+        }
+        @keyframes a1 {         /*创建动画*/
+              0% {
+                -webkit-transform:rotateX(20deg) rotateY(40deg);
+              }
+              50%{
+               -webkit-transform:rotateX(0) rotateY(0);
+              }
+              100% {
+                -webkit-transform:rotateX(-20deg) rotateY(-40deg);
+              }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>我对你若即若离!</div>
+    </div>
+</body>
+</html>
+
+```
+
+十五、实现火焰文字
+---------
+
+1、实例描述：在浏览页面时，经常会看到文字的火焰效果。本实例将使用 CSS3 来实现文字的燃烧效果。结果如下图所示：  
+
+![](https://pic1.zhimg.com/v2-91aedfffbb1755c1ba34ed2e9b9c265d_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，实现文字的火焰效果主要使用了 CSS3 中的 text-shadow 属性和 animation 属性，通过 text-shadow 属性向文本添加多个阴影，通过 animation 属性设置动画。代码实现如下：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现火焰文字</title>
+    <style type="text/css">
+        body{
+           font-size:120px; /*设置字体大小*/
+           font-weight:bold; /*设置字体粗细*/
+           font-family:'微软雅黑'; /*设置字体*/
+           background:#000; /*设置页面背景颜色*/
+           color:#fff; /*设置文字颜色*/
+           text-align:center/*设置文字居中*/
+        }
+        div{
+
+            text-shadow:0 0 20px #fefcc9,
+            10px -10px 30px #feec85,
+            -20px -20px 40px #ffae34,
+            20px -40px 50px #ec760c,
+            0 -80px 70px #f38e1c; /*设置文字阴影*/
+            -webkit-animation: flame 2s infinite;    /*设置动画*/
+
+        }
+
+        @-webkit-keyframes flame{    /*创建动画*/
+            0%{
+                text-shadow:0 0 20px #fefcc9,
+                10px -10px 30px #feec85,
+                -20px -20px 40px #ffae34,
+                20px -40px 50px #ec760c,
+                0 -80px 70px #f38e1c;
+            }
+            30%{
+                text-shadow:0 0 20px #fefcc9,
+                10px -10px 30px #feec85,
+                -20px -20px 40px #ffae34,
+                20px -40px 50px #ec760c,
+                10px -90px 80px #f38e1c;
+            }
+            60%{
+                text-shadow:0 0 20px #fefcc9,
+                10px -10px 30px #feec85,
+                -20px -20px 40px #ffae34,
+                20px -40px 50px #ec760c,
+                0px -80px 100px #f38e1c;
+            }
+            100%{
+                text-shadow:0 0 20px #fefcc9,
+               10px -10px 30px #feec85,
+               -20px -20px 40px #ffae34,
+               20px -40px 50px #ec760c,
+               0 -80px 70px #f38e1c;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>星星之火可以燎原</div>
+</body>
+</html>
+
+```
+
+十六、实现文字的闪烁效果
+------------
+
+1、实例描述：在浏览页面时，经常会看到一些文字具有动态的闪烁效果。结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-357117f7f572456f9db020ad80ce16f2_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要使用了 CSS3 中的 animation 属性为文字设置动画，再应用 @keyframes 规则创建动画，在创建动画时应用 opacity 属性设置文字的透明度，根据透明度的变化实现文字闪烁的效果。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现文字的闪烁效果</title>
+    <style>
+        body{
+           background:#000000; /*设置页面背景颜色*/
+           text-align:center; /*设置文字居中*/
+        }
+        .flicker{
+           color:#9966FF; /*设置文字颜色*/
+           font-size:64px; /*设置字体大小*/
+           font-weight:bolder; /*设置字体粗细*/
+            -webkit-animation: flicker 2s infinite;    /*设置动画*/
+        }
+        @-webkit-keyframes flicker{                    /*创建动画*/
+            0%{
+                opacity: 1;
+            }
+            50%{
+                opacity: 0.5;
+            }
+            100%{
+                opacity: 1;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <h1>天生我材必有用</h1>
+</body>
+</html>
+
+```
+
+十七、上下摇摆的文字动画效果
+--------------
+
+1、实例描述：本实例将实现文字上下摇摆的动画效果。结果如下图所示：  
+
+![](https://pic1.zhimg.com/v2-9ce9e3d771ee144e66d940a205cc631f_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，实现文字的摇摆效果主要是应用 CSS3 中的 transform 属性，应用该属性可以设置元素的 2D 旋转角度，再应用 animation 属性为元素设置动画，从而实现文字上下摇摆的效果。设置元素的 2D 旋转的格式为：
+
+```
+transform:rotate(angle)
+/*参数angle用来定义旋转的角度。*/
+
+```
+
+代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上下摇摆的文字动画效果</title>
+    <style type="text/css">
+        h1{
+           font: 96px "微软雅黑";/*设置字体和字体大小*/
+           margin:50px auto; /*设置元素外边距*/
+           font-weight: 500; /*设置字体粗细*/
+           text-align: center; /*设置文字居中*/
+           color: #f35626; /*设置文字颜色*/
+           -webkit-animation:swing 2s infinite;/*设置动画*/
+        }
+        @-webkit-keyframes swing{/*创建动画*/
+           20%{
+              -webkit-transform:rotate(15deg);
+           }40%{
+              -webkit-transform:rotate(-15deg);
+           }60%{
+              -webkit-transform:rotate(5deg);
+           }80%{
+              -webkit-transform:rotate(-5deg);
+           }100%{
+              -webkit-transform:rotate(0deg);
+           }
+        }
+    </style>
+</head>
+<body>
+    <h1>amoxiang</h1>
+</body>
+</html>
+
+
+
+```
+
+十八、制作跳跃的文字动画
+------------
+
+1、实例描述：本实例将实现文字上下跳跃的动画效果。结果如下图所示：  
+
+![](https://pic1.zhimg.com/v2-ccba446888319c26974e34702b375f4a_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，实现文字跳跃的效果应用了 CSS3 中的 transform 属性，应用该属性可以设置元素的移动，再应用 animation 属性为元素设置动画，从而实现文字跳跃的效果。设置元素移动的格式为：
+
+```
+transform:translate(x,y)
+/*当设置一个参数时，表示沿着水平方向进行移动；
+当设置两个参数时，第一个参数表示沿着水平方向进行移动，
+第二个参数表示沿着垂直方向进行移动。
+另外，还可以单独设置移动的方向。设置沿着水平方向移动的格式为：*/
+transform:translateX(x)
+/*设置沿着垂直方向移动的格式为：*/
+transform:translateY(y)
+
+```
+
+代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>制作跳跃的文字动画</title>
+    <style>
+        h1{
+           font: 96px "微软雅黑"; /*设置字体和字体大小*/
+           margin:50px auto; /*设置元素外边距*/
+           font-weight: 500; /*设置字体粗细*/
+           text-align: center; /*设置文字居中*/
+           color: #f35626; /*设置文字颜色*/
+           -webkit-animation:bounce 2s infinite;/*设置动画*/
+        }
+        @-webkit-keyframes bounce{/*创建动画*/
+           0%,100%,20%,50%,80%{
+              -webkit-transform:translateY(0);
+           }40%{
+              -webkit-transform:translateY(-30px);
+           }60%{
+              -webkit-transform:translateY(-15px);
+           }
+        }
+    </style>
+</head>
+<body>
+    <h1>amoxiang</h1>
+</body>
+</html>
+
+
+
+```
+
+十九、实现文字水纹效果
+-----------
+
+1、实例描述：本实例将实现文字的水纹效果。运行结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-70b63c9c877c0df332e80ef9259b6813_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要使用了 CSS3 中的 text-shadow 属性为文字设置阴影，实现水波纹掠过文字时文字透明度改变的效果，再应用 animation 属性为文字设置动画，最后应用 @keyframes 规则创建动画，实现文字水波纹的动态效果。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现文字水纹效果</title>
+    <style type="text/css">
+        body {
+           background:#3399FF; /*设置页面背景颜色*/
+           width: 100%;
+           height: 100%;
+        }
+
+        div{
+           font-weight: bold; /*设置字体粗细*/
+           font-size: 64px; /*设置字体大小*/
+           text-align: center; /*设置文字居中*/
+           height: 120px;
+           line-height: 110px;
+           vertical-align: bottom; /*设置文字垂直靠下*/
+           position: absolute;
+           left: 0;
+           right: 0;
+           top: 100px;
+           display: block;
+        }
+
+        .wave{
+           background-image: url("bg/wave.png");/*设置元素背景图像*/
+           -webkit-background-clip: text; /*背景被裁剪到文字*/
+           -webkit-text-fill-color: transparent; /*设置文字的填充颜色*/
+           text-shadow: 0px 0px rgba(255, 255, 255, 0.1); /*设置文字阴影*/
+           -webkit-animation:wave-animation 1s infinite linear, loading-animation 6s infinite linear alternate; /*设置动画*/
+           background-size: 200px 100px; /*设置背景图像尺寸*/
+           background-repeat: repeat-x;
+           opacity: 1;
+        }
+        @-webkit-keyframes wave-animation {/*创建动画*/
+           0% {
+               background-position: 0 bottom;
+           }
+           100% {
+               background-position: 200px bottom;
+           }
+        }
+        @-webkit-keyframes loading-animation {/*创建动画*/
+           0% {
+               background-size: 200px 200px;
+           }
+           100% {
+               background-size: 200px 0px;
+           }
+        }
+    </style>
+</head>
+<body>
+    <div>清水出芙蓉，天然去雕饰</div>
+</body>
+</html>
+
+
+
+```
+
+二十、实现文字水平往复循环滚动
+---------------
+
+1、实例描述：本实例将通过 CSS3 实现文字水平往复循环滚动的效果。结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-3f028b80b7d0bbd3e0d29136986f1f18_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要使用了 CSS3 中的 animation 属性为文字设置动画，再应用 @keyframes 规则创建动画。在应用 animation 属性为文字设置动画时，将 iteration-count 参数的值设置为 infinite，该值用来指定动画无限次播放。再将 direction 参数的值设置为 alternate，它表示动画在奇数次时正向播放，而在偶数次时反向播放，从而实现文字水平往复循环滚动的效果。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现文字水平往复循环滚动</title>
+    <style type="text/css">
+        .box{
+           font-family:"微软雅黑";            /*设置字体*/
+           width:600px;                    /*设置元素宽度*/
+           background:lightgreen;
+           margin:50px auto;                /*设置外边距*/
+           font-size: 36px;                /*设置文字大小*/
+           color:blue;                    /*设置文字颜色*/
+           overflow:hidden;                /*隐藏溢出部分内容*/
+        }
+        .marquee{
+           position:relative;                /*设置相对定位*/
+           -webkit-animation: marquee 5s linear infinite alternate;/*设置动画*/
+        }
+        @-webkit-keyframes marquee{        /*创建动画*/
+            0%{ left:0px; }
+            100%{ left:200px; }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>机会总是留给有准备的人</p>
+    </div>
+</body>
+</html>
+
+
+
+```
+
+二十一、使用 SVG 创建空心虚线线条文字
+---------------------
+
+1、实例描述：SVG 是指可缩放矢量图形，它是基于可扩展标记语言，用于描述二维矢量图形的一种图形格式。本实例将应用 SVG 创建空心虚线线条文字的效果，运行结果如下图所示：  
+
+![](https://pic1.zhimg.com/v2-b7a814e8a88a22b6f9e32e6b749247b3_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在 SVG 中定义文本使用的是标签。在该实例中，为了实现空心虚线线条文字的效果，需要对标签的 fill、stroke 和 stroke-dasharray 这几个属性进行设置。fill：为文字或图形填充颜色或图案。stroke：用于定义文本或元素的轮廓颜色。stroke-dasharray：用于创建虚线。该属性值是一个数列，既可以是普通数字也可以是百分比。数值之间可以用逗号或者空格分隔。当使用一个数值时，该数值表示一段虚线的长度和每段虚线之间的间距。当使用两个数值时，第一个数值表示虚线的长度，第二个数值表示虚线之间的间距。当使用奇数个数值时，则数列重复一次，从而变成偶数个数值。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        text{
+           font-family:SimHei;        /*定义字体*/
+           font-size:56px;            /*定义文字大小*/
+           font-weight:bolder;        /*定义字体粗细*/
+           fill:transparent;            /*定义文字透明*/
+           stroke:#0000FF;            /*定义描边颜色*/
+           stroke-dasharray:3;        /*定义虚线长度和虚线间距*/
+        }
+    </style>
+</head>
+<body>
+    <svg width="600" height="300">
+        <text x="30" y="150">人生苦短，我用Python</text>
+    </svg>
+</body>
+</html>
+
+
+
+```
+
+二十二、使用 SVG 错落显示文本中的每个文字
+-----------------------
+
+1、实例描述：本实例将使用 SVG 错落显示文本中每个文字的效果。结果如下图所示：  
+
+![](https://pic1.zhimg.com/v2-9c8dabce515a10b6836d3d5b107f207c_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，错落显示文本中每个文字的效果需要设置标签的 y 属性，通过该属性设置文本中每个文字不同的垂直坐标，各个垂直坐标以逗号或空格进行分隔。每个垂直坐标对应一个文字，如果文字的数量多于垂直坐标的数量，则以最后一个垂直坐标作为剩余文字的垂直坐标。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用SVG错落显示文本中的每个文字</title>
+    <style type="text/css">
+        text{
+           font-family:SimHei;        /*定义字体*/
+           font-size:36px;            /*定义文字大小*/
+           fill:#0099FF;                /*定义文字填充颜色*/
+           letter-spacing:10px;        /*定义字符间距*/
+        }
+    </style>
+</head>
+<body>
+    <svg width="600" height="300">
+        <text x="60" y="120,150,130,120,140,110,150">业精于勤荒于嬉</text>
+    </svg>
+</body>
+</html>
+
+
+
+```
+
+二十三、使用 SVG 实现字间距不等的文本
+---------------------
+
+1、实例描述：本实例将使用 SVG 实现文本中字间距不等的效果。结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-dc7416325d825816f0ad160284a8b81c_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，实现文本中字间距不等的效果需要设置标签的 dx 属性，该属性可以设置每个字符相对于前一个字符的偏移距离。通过该属性可以设置文本中每个文字不同的字间距，各个字间距数值以逗号或空格进行分隔，每个数值相当于为每个文字设置的 margin-left 属性。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用SVG实现字间距不等的文本</title>
+    <style>
+        text{
+           font-size:36px;            /*定义文字大小*/
+           font-weight:bolder;        /*定义字体粗细*/
+           fill:#FF00FF;                /*定义文字填充颜色*/
+        }
+    </style>
+</head>
+<body>
+    <svg width="500" height="300">
+        <text x="60" y="150" dx="0 3 6 9 12 15 18 21">乐观的人永葆青春</text>
+    </svg>
+</body>
+</html>
+
+
+
+```
+
+二十四、使用 SVG 将文本中的某部分突出显示
+-----------------------
+
+1、实例描述：本实例将使用 SVG 突出显示文本中的部分文字，实现将部分文字放大加粗的效果。运行结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-26ea134494977a6e55b5514a0cca4b7c_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，实现文本中部分文字放大加粗的效果应用了 SVG 中的标签，该标签需要定义在标签内部，也可以嵌套使用。所有标签的属性，标签也都可以使用。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用SVG将文本中的某部分突出显示</title>
+    <style>
+        text{
+           font-family:SimHei;            /*定义字体*/
+           font-size:30px;                /*定义文字大小*/
+           fill:red;                        /*定义文字填充颜色*/
+        }
+    </style>
+</head>
+<body>
+    <svg width="600" height="300">
+      <text x="60" y="150">
+       <tspan font-size="36" font-weight="bold">耐心</tspan>是一切聪明才智的基础
+      </text>
+    </svg>
+</body>
+</html>
+
+
+
+```
+
+二十五、使用 SVG 实现线性渐变空心文字效果
+-----------------------
+
+1、实例描述：渐变是指从一种颜色到另一种颜色的平滑过渡。在 SVG 中，主要有两种渐变类型：线性渐变和放射性渐变。本实例将使用 SVG 实现线性渐变空心文字的效果。运行实例，在页面中输出 “失败是成功之母” 几个文字，这几个文字的轮廓从左到右实现红、绿、蓝三种颜色的线性渐变效果，结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-d23ba7e7139c17c736da2cf3610d0825_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，实现文字线性渐变的效果应用了 SVG 中的标签。应用标签定义线性渐变可以设置 4 个属性：x1、x2、y1 和 y2。通过这 4 个属性可以定义水平、垂直或角形渐变。当 y1 和 y2 相等，而 x1 和 x2 不同时，可以创建水平渐变。当 x1 和 x2 相等，而 y1 和 y2 不同时，可以创建垂直渐变。当 x1 和 x2 不同，并且 y1 和 y2 不同时，可以创建角形渐变。渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个标签来规定。该标签中的 offset 属性用来定义渐变的开始和结束位置，stop-color 属性用来定义渐变的每种颜色。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用SVG实现线性渐变空心文字效果</title>
+    <style>
+        text{
+           font-family:SimHei;            /*定义字体*/
+           font-size:56px;                /*定义文字大小*/
+           font-weight:bolder;            /*定义字体粗细*/
+        }
+    </style>
+</head>
+<body>
+    <svg width="600" height="300">
+        <defs>
+            <linearGradient x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#FF0000"></stop>
+                <stop offset="50%" stop-color="#00FF00"></stop>
+                <stop offset="100%" stop-color="#0000FF"></stop>
+            </linearGradient>
+        </defs>
+        <text x="30" y="150" fill="transparent" stroke="url(#linear)">失败是成功之母</text>
+
+    </svg>
+</body>
+</html>
+
+
+
+```
+
+二十六、使用 SVG 实现放射性渐变的文字效果
+-----------------------
+
+1、实例描述：本实例将使用 SVG 实现文字颜色放射性渐变的效果。结果如下图所示：  
+
+![](https://pica.zhimg.com/v2-8f810b313e74a0aeaf6b57465d3924f1_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，实现文字颜色放射性渐变的效果应用了 SVG 中的标签。应用标签定义放射性渐变可以设置 5 个属性：cx、cy、r、fx 和 fy。其中，cx 和 cy 属性用于定义渐变的中心点，默认值为 50%，r 属性用于定义渐变的半径，默认值为 50%，fx 和 fy 属性用于定义渐变的焦点，默认值为 50%。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用SVG实现放射性渐变的文字效果</title>
+    <style type="text/css">
+        text{
+           font-family:SimHei;        /*定义字体*/
+           font-size:56px;            /*定义文字大小*/
+        }
+    </style>
+</head>
+<body>
+    <svg width="800" height="500">
+        <defs>
+            <radialGradient cx="50%" cy="50%" r="60%" fx="60%" fy="60%">
+                <stop offset="0%" stop-color="#FF0000"></stop>
+                <stop offset="50%" stop-color="#00FF00"></stop>
+                <stop offset="100%" stop-color="#0000FF"></stop>
+            </radialGradient>
+        </defs>
+        <text x="60" y="150" fill="url(#radial)">锲而不舍</text>
+    </svg>
+</body>
+</html>
+
+```
+
+二十七、使用 SVG 实现文字的瘦身和增肥效果
+-----------------------
+
+1、实例描述：本实例将使用 SVG 实现文字的线条瘦身和增肥的效果。结果如下图所示：  
+
+![](https://pic1.zhimg.com/v2-6206f036ba4fa00ab970685a15cd1b2f_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，实现文字的瘦身和增肥效果应用了 SVG 中的 feMorphology 滤镜，该滤镜用于对源图形执行 fattening(增肥) 或者 thinning(瘦身) 的功能。该滤镜有一个 operator 属性，当设置该属性值为 erode 时，该滤镜产生的是瘦身的效果，当设置该属性值为 dilate 时，该滤镜产生的是增肥的效果。瘦身和增肥效果的数值是由 feMorphology 滤镜的 radius 属性值决定的。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用SVG实现文字的瘦身和增肥效果</title>
+    <style type="text/css">
+        text{
+           font-family:SimHei;        /*定义字体*/
+           font-size:56px;            /*定义文字大小*/
+           fill:#66FF66;                /*定义文字填充颜色*/
+        }
+    </style>
+</head>
+<body>
+    <svg width="600" height="300">
+        <defs>
+          <filter>
+             <feMorphology operator="erode" in="SourceGraphic" radius="1">
+          </filter>
+          <filter>
+             <feMorphology operator="dilate" in="SourceGraphic" radius="2">
+          </filter>
+       </defs>
+       <g>
+          <text x="50" y="100" filter="url(#Erode)">敏而好学，不耻下问</text>
+          <text x="50" y="200" filter="url(#Dilate)">敏而好学，不耻下问</text>
+       </g>
+    </svg>
+</body>
+</html>
+
+
+
+```
+
+二十八、使用 SVG 实现文字的压扁效果
+--------------------
+
+1、实例描述：本实例将使用 SVG 实现文字的压扁效果。结果如下图所示：  
+
+![](https://pica.zhimg.com/v2-7adb1f2179682267c67132d0ea658535_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，实现文字的压扁效果需要设置标签中的 textLength 和 lengthAdjust 属性，textLength：用于设置文本的长度，通常和 lengthAdjust 属性搭配使用。lengthAdjust：用于设置对文本长度的调整。可选值为 spacing 和 spacingAndGlyphs。spacing 表示拉伸文字间距，使文本满足 textLength 的长度值；spacingAndGlyphs 表示拉伸文字，直到文本满足 textLength 的长度值为止。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用SVG实现文字的压扁效果</title>
+    <style type="text/css">
+        text{
+           font-family:SimHei;            /*定义字体*/
+           font-size:36px;                /*定义文字大小*/
+           fill:#00FFFF;                    /*定义文字填充颜色*/
+        }
+    </style>
+</head>
+<body>
+    <svg width="100%" height="100%">
+        <text x="50" y="120" textLength="900" lengthAdjust="spacingAndGlyphs">欲穷千里目，更上一层楼</text>
+    </svg>
+</body>
+</html>
+
+
+
+```
+
+二十九、使用 SVG 实现逐个文字旋转效果
+---------------------
+
+1、实例描述：本实例将使用 SVG 实现逐个文字的旋转效果。结果如下图所示：  
+
+![](https://pic1.zhimg.com/v2-3b862aa472af0dfd5396292315f62b96_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，实现文字的旋转效果需要设置标签中的 rotate 属性，通过该属性可以设置文本中每个文字的旋转角度，各个旋转角度以逗号或空格进行分隔。每个旋转角度对应一个文字，如果文字的数量多于旋转角度的数量，则以最后一个旋转角度作为剩余文字的旋转角度。。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用SVG实现逐个文字旋转效果</title>
+    <style>
+        text{
+           font-family:SimHei;        /*定义字体*/
+           font-size:36px;            /*定义文字大小*/
+           fill:#0000FF;                /*定义文字填充颜色*/
+           letter-spacing:20px;        /*定义字符间距*/
+        }
+    </style>
+</head>
+<body>
+    <svg width="500" height="300">
+        <text x="50" y="120" rotate="10,20,30,40,50,60,70">无所求则无所获</text>
+    </svg>
+</body>
+</html>
+
+
+
+```
+
+三十、使用 SVG 实现文字旋转的动画效果
+---------------------
+
+1、实例描述：结果如下图所示：  
+
+![](https://pic1.zhimg.com/v2-2f7735aa738b73f7c4b84046ff81e454_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，实现文本围绕指定中心点旋转的动画效果需要在标签中嵌入标签，根据该标签指定的属性值使标签中的文本进行旋转。在标签中，type 属性用于定义动画类型，设置为 rotate 表示旋转动画，from 属性用于定义旋转的起始角度和旋转时围绕的中心点坐标，to 属性用于定义旋转的结束角度和旋转时围绕的中心点坐标。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用SVG实现文字旋转的动画效果</title>
+    <style>
+        text{
+           font-family:SimHei;        /*定义字体*/
+           font-size:36px;            /*定义文字大小*/
+           fill:green;                /*定义文字填充颜色*/
+        }
+    </style>
+</head>
+<body>
+    <svg width="1200" height="900">
+        <text x="600" y="400">想象力比知识更重要<animateTransform dur="3s" attribute></text>
+    </svg>
+</body>
+</html>
+
+
+
+```
+
+三十一、使用 SVG 实现文字的模糊效果
+--------------------
+
+1、实例描述：本实例将使用 SVG 实现以模糊效果显示当前的文本。结果如下图所示：  
+
+![](https://pica.zhimg.com/v2-c7613994780d2ddf515b9121bed7e77f_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，实现文字的模糊效果使用的是 SVG 中的 feGaussianBlur 滤镜。在标签中应用标签，并设置该标签的 stdDeviation 属性，该属性用来定义模糊的程度，其值越大，模糊范围就越大。示例代码如下：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用SVG实现文字的模糊效果</title>
+    <style type="text/css">
+        text{
+           font-family:SimHei;/*定义字体*/
+           font-size:36px;/*定义文字大小*/
+           fill:orange;/*定义文字填充颜色*/
+        }
+    </style>
+</head>
+<body>
+    <svg width="100%" height="100%">
+       <defs>
+          <filter>
+             <feGaussianBlur in="SourceGraphic" stdDeviation="2">
+          </filter>
+       </defs>
+       <text x="60" y="100" filter="url(#Filter)">成功永远属于立刻行动的人</text>
+    </svg>
+</body>
+</html>
+
+
+
+```
+
+三十二、使用 SVG 实现文字的圆弧显示效果
+----------------------
+
+1、实例描述：使用 SVG 可以设置不同样式的路径，并在路径上显示文字。结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-29f327b822cbe6b70cd8ae9192d7c0a6_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，为了实现文字的圆弧显示效果，需要定义一个圆弧的路径。定义一个路径使用的是 SVG 中的标签，该标签的 d 属性用于定义路径的命令，根据不同的命令可以定义不同的路径。定义一个圆弧的路径需要使用的路径命令是 M(moveto) 和 A(elliptical Arc)。M 命令用于设置路径的开始点坐标，A 命令用于设置圆弧的半长轴长度、半短轴长度、圆弧的方向以及终点坐标等参数。定义路径后，应用标签的 xlink:href 属性引用该路径，实现文本沿指定路径显示的效果。代码实现如下：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用SVG实现文字的圆弧显示效果</title>
+    <style>
+        text{
+           font-family:SimHei;/*定义字体*/
+           font-size:36px;/*定义文字大小*/
+           fill:gold;/*定义文字填充颜色*/
+        }
+    </style>
+</head>
+<body>
+    <svg width="1000" height="800">
+       <defs>
+           <path d="M100,300 A100,100 0 0 0 395,300">
+       </defs>
+       <text x="50" y="100">
+           <textPath xlink:href="#path1">成长就是逼着自己坚强</textPath>
+       </text>
+    </svg>
+</body>
+</html>
+
+
+
+```
+
+三十三、使用 SVG 实现文字沿曲线显示效果
+----------------------
+
+1、实例描述：本实例将使用 SVG 实现文字沿着三次贝塞尔曲线显示的效果。结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-699e9b9bcb516e50d00ff3fb27e99594_r.jpg?source=2c26e567)
+
+  
+2、技术要点：在本实例中，为了实现文字沿曲线显示的效果，需要应用 SVG 中的标签定义一个三次贝塞尔曲线的路径。在该标签的 d 属性中设置三次贝塞尔曲线的开始点、控制点和结束点。其中使用的路径命令有 M(moveto)、C(curveto) 和 S(smooth curveto)。M 命令用于设置路径的开始点坐标，C 命令用于设置三次贝塞尔曲线的控制点和结束点坐标，S 命令用于设置平滑的贝塞尔曲线的控制点坐标。代码实现如下：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用SVG实现文字沿曲线显示效果</title>
+    <style type="text/css">
+        text{
+           font-family:SimHei;/*定义字体*/
+           font-size:33px;/*定义文字大小*/
+           fill:url(#linear);/*定义文字颜色线性渐变*/
+        }
+    </style>
+</head>
+<body>
+    <svg width="1000" height="800">
+       <defs>
+          <path d="M130,140 C130,240 330,240 330,140 S510,60 510,140"/>
+          <linearGradient x1="0%" y1="0%" x2="100%" y2="0%">
+               <stop offset="0%" stop-color="#FF0000"></stop>
+               <stop offset="50%" stop-color="#00FF00"></stop>
+               <stop offset="100%" stop-color="#0000FF"></stop>
+           </linearGradient>
+       </defs>
+       <text dy="10">
+            <textPath xlink:href="#textPath">世界会向那些有目标和远见的人让路</textPath>
+        </text>
+</svg>
+</body>
+</html>
+
+
+
+```
+
+三十四、简单文字变色
+----------
+
+1、实例描述：浏览页面时，经常会看到一些页面的标题颜色不断地变化。运行结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-a0025a28d545652e90b804f26ecd2c55_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要是通过窗体的 onLoad 事件调用 JavaScript 自定义函数来实现的，在该自定义函数中关键是修改当前页的 fgColor 属性来修改页面的前景颜色，并用 Window 对象的 setInterval() 方法以指定的时间调用 JavaScript 自定义函数 changecolor()。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单文字变色</title>
+</head>
+<body>
+    <h1 align="center">amo xiang</h1>
+</body>
+</html>
+<script>
+    var colors=new Array("red","orange","green","blue","browm","putple","gray","white");
+    var ind=0;
+    function changecolor(){
+       document.fgColor=colors[ind++];
+       if (ind==(colors.length)){ind=0}
+    }
+    setInterval("changecolor()",500);
+    window.onload=changecolor;
+</script>
+
+
+
+```
+
+三十五、变换的文字
+---------
+
+1、实例描述：本实例是将指定的文字在页面上进行居中显示，并以一定的时间间隔动态显示不同的文字，同时修改其字体颜色。运行结果如下图所示：  
+
+![](https://pica.zhimg.com/v2-f422fa88f0590f298519a20ae7899af4_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要是通过层的 innerHTML 属性将指定的文本动态添加到层中，并用 window 对象的 setTimeout() 方法以指定时间调用自定义函数 letter() 来更换文本及其字体颜色。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变换的文字</title>
+</head>
+<body>
+    <div align="center"></div>
+</body>
+</html>
+<script>
+var Aletter=new Array();
+var Acolor=new Array("#3300CC","#00FFCC","#FF66CC","#CC0000","#00FF00","#9900FF","#FFCC33","#6633FF","#FFCCFF");
+Aletter[0]="11111111111111111";
+Aletter[1]="2222222222222222222";
+Aletter[2]="33333333333333333333";
+Aletter[3]="444444444444444444444";
+Aletter[4]="5555555555555555555555";
+Aletter[5]="66666666666666666666666";
+Aletter[6]="777777777777777777777777";
+Aletter[7]="8888888888888888888888888";
+Aletter[8]="99999999999999999999999999";
+var i=0;
+document.all.cc.style.width=document.body.clientWidth;
+function letter(){
+  if (i==Aletter.length) i=0;
+  cc.innerHTML='<font color="'+Acolor[i]+'" size="+5">'+Aletter[i]+'</font>';
+  ++i;
+  setTimeout("letter()",1000);
+}
+letter();
+</script>
+
+
+
+```
+
+三十六、霓虹灯文字
+---------
+
+1、实例描述：在页面设计中，有许多文字都是以霓虹灯效果来显示。本实例是通过对文本中的每个文字的颜色进行修改，使文本的颜色看上去是不停变换的，从而达到霓虹灯效果，如下图所示：  
+
+![](https://pica.zhimg.com/v2-c00740f1bb16390f753a2de960557f70_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要是通过 substring() 方法来获取指定文本中的单个文字，并将其设置成不同的颜色，再用 innerHTML 属性将文字动态显示在层中。用 setTimeout() 方法循环调用自定义函数 Dcolor()，使文字看上去具有霓虹灯效果。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>霓虹灯文字</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+var T;
+var Tlen=Tname.length;
+document.write("<div id='a' style='font-size:40px;'>"+Tname+"</div>");
+var col=new Array("#FFCC00","#3333FF","#FFCC00","#FF0000","#FFCC00","#CC33FF");
+var ic=0;
+function Dcolor(){
+  var Str;
+  for (i=0;i<Tlen;++i){
+    var Str+col[ic]+">"+Tname.substring(i,i+1)+"</font>";
+   ic=ic+1;
+   if (ic==col.length) ic=0;
+  }
+  a.innerHTML=Strname;
+  setTimeout("Dcolor()",200);
+}
+Dcolor();
+</script>
+
+```
+
+三十七、追逐点亮的文字
+-----------
+
+1、实例描述：浏览网页时，经常会看到追逐点亮文字效果。本实例是通过对文本中的每个文字的颜色进行逐变，并将改变后的文字恢复到以前的颜色，使文本中的文字颜色看上去是逐个变色的。运行结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-e8df402dd0eadaf4e28dfb5ade452a5f_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要是通过 substring() 方法逐个对文字的颜色进行改变，并用 innerHTML 属性将修改后的文字显示在浏览器中，再用 setTimeout() 方法循环调用自定义函数 gogo()，使文字看上去具有逐个变色的效果。代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>追逐点亮的文字</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+Str;
+StrLen=Strname.length;
+document.write("<div id='a' style='color:#6666FF;font-size:24px'></div>");
+var act=0;
+function gogo()
+{
+   ++act;
+   act=(act>(StrLen-1))?0:act;
+   act=(act<0)?(StrLen-1):act;
+   a.innerHTML=Strname.substring(0,act)+"<font style='font-size:24px' color='#00FF33'>"+Strname.substring(act,act+1)+"</font>"+Strname.substring(act+1,StrLen);
+}
+setInterval("gogo()",200);
+</script>
+
+
+
+```
+
+三十八、动荡的文字
+---------
+
+1、实例描述：在网页设计时经常会对标题文字进行动态显示效果，本实例将对标题的文字大小以正弦的形式进行改变，以实现标题文字的动荡效果，运行结果如下图所示：  
+
+![](https://pic1.zhimg.com/v2-8b03063acfb38158fc85d16e93b7a70a_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要是用 Math 对象的 sin() 方法来计算出正弦值，并用 Math 对象的 abs() 方法将正弦值修改为绝对值后逐个改变文本中单个文字的大小。下面对 sin() 方法进行详细说明。
+
+```
+Math.sin(number)
+//number：计算正弦值的数值表达式。
+//功能：返回数字的正弦值。
+
+
+
+```
+
+代码实现：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动荡的文字</title>
+</head>
+<body onload=wavy(0)>
+    <div align="center"></div>
+</body>
+</html>
+<script>
+var theText = "天若有情天亦老";
+function Cycle(text,dis){
+   str = "";
+   for (i = 0; i < text.length; i++){
+      size = 72*Math.abs( Math.sin((i+dis)/(text.length/3.14)));
+      str += "<span style='font-size: "+ size +"px;color:rgb(200,0,"+parseInt(size+70)+")'>" +text.substring(i,i+1)+ "</span>";
+   }
+   Tdiv.innerHTML = str;
+}
+function wavy(n){
+   Cycle(theText,n);
+   if (n > theText.length) {n=0}
+   setTimeout("wavy(" + (n+1) + ")", 100);
+}
+</script>
+
+
+
+```
+
+三十九、文字虚幻抖动
+----------
+
+1、实例描述：在浏览一些特殊的主页时，有些标题性文字的后面，会出现该标题的虚文字，并在标题文字的背面以一定的范围进行随机显示。运行结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-d09c645c88b88a9e1b13b3af3906ed09_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要是用 Math 对象的 random() 方法来获取一个随机数，并按指定的时间对下面层的 style 样式的 top 属性和 left 属性进行修改，以实现其抖动的效果。random() 方法的返回值在 0～1 之间，不包含 1。在获取层的当前位置时，其值为 string 型，必须用 parseInt() 方法将其转换成 int 型，才可以对层的位置进行移动。下面对 parseInt() 方法进行详细说明。
+
+```
+parseInt(numString, [radix])
+//numString：必选项。要转换为数字的字符串。
+//radix：可选项。在2和36之间的表示 numString 所保存数字的进制值。如果没有提供，则前缀为“0x”的字符串被当作十六进制，前缀为“0”的字符串被当作八进制，其他字符串都被当作是十进制。
+//功能：返回由字符串转换得到的整数。
+
+
+
+```
+
+代码实现：
+
+```
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<title>文字虚幻抖动</title>
+</head>
+<body>
+<div id=Title2>
+<p>AmoXiang<br>CSDN认证博客专家</p></div>
+<div id=Title1>
+<p>AmoXiang<br>CSDN认证博客专家</p></div>
+<script>
+var Tle2="document.all.Title2.style";
+var Tle1="document.all.Title1.style";
+eval(Tle2).top=eval(Tle1).top=document.body.clientHeight/2 - 20;
+eval(Tle2).left=eval(Tle1).left=document.body.clientWidth/2 - 150;
+function Fade(){   
+    var BackX = Math.random()*10;
+    var BackY = Math.random()*5;   
+    if(Math.random()<0.5){   
+        BackX = -BackX;   
+        BackY = -BackY;   
+    }   
+    eval(Tle1).visibility = eval(Tle2).visibility = "visible";   
+    eval(Tle2).left = parseInt(eval(Tle1).left) + BackX;   
+    eval(Tle2).top = parseInt(eval(Tle1).top)  + BackY;   
+    var FadeID = setTimeout("Fade()",50);   
+}
+Fade();
+</script>
+</body>
+</html>
+
+
+
+```
+
+四十、右上角文字
+--------
+
+1、实例描述：本实例是将动态旋转的字符串文字总置于页面工作区的右上角，即使移动纵向或横向滚动条，旋转的文字仍然位于右上角。运行结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-030ee0e87882d4bda3bc4f14f9e56019_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要用 split() 方法将一个字符串分割为子字符串，然后再用 Math 对象的 sin() 和 cos() 方法将字符串中的文字在页面中画一个半圆，使其动态旋转。代码实现：
+
+```
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<title>右上角文字</title>
+</head>
+
+<body>
+ 
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>
+<script>
+var textstr="重庆师范大学";
+var TColor="#AA92C7";
+var TFont="楷书";
+textstr=textstr.split("");
+var n=textstr.length;
+var mass=360/n;
+var cy=cx=sb=0;
+var yb=50;
+var xb=60;
+var sa=0.1;
+var pa=new Array();
+var pb=new Array();
+for (i=0; i < n; i++) document.write('<div>'+textstr[i]+'</div>');
+function sport(){
+  cy=document.body.scrollTop+60;
+  cx=document.body.scrollLeft+window.document.body.clientWidth-100;
+  for (i=0; i < n; i++){
+     logo[i].style.top =cy+yb*Math.sin(sb+i*mass*Math.PI/180);
+     logo[i].style.left=cx+xb*Math.cos(sb+i*mass*Math.PI/180);
+     pb[i]=logo[i].style.pixelTop-cy;
+     pa[i]=pb[i]-pb[i]*2;
+     if (pa[i] < 1){
+        pa[i]=0;
+        logo[i].style.visibility='hidden';
+     }
+     else logo[i].style.visibility='visible';
+     logo[i].style.fontSize=pa[i]/1.7;
+  }
+  sb-=sa;
+  setTimeout('sport()',100);
+}
+sport();
+</script>
+</p>
+</body>
+</html>
+
+
+
+```
+
+四十一、文字自动滚屏
+----------
+
+1、实例描述：在一些动态网页中，经常在页面中会看到一些文字自动进行滚屏，使浏览者在观看时不用做任何操作，本实例将实现这一过程。运行结果如下图所示：  
+
+![](https://pica.zhimg.com/v2-7c1062d0a8346620e72a10deb82a7986_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要是将列表框中最上面的对象进行清空，使下一行移动到最上面，并利用列表框的 selectedIndex 属性将最上面的对象设为选中状态，并利用 window 对象的 setTimeout() 方法对自定义函数 screenscroll() 进行调用，以达到滚动的效果。代码实现：
+
+```
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<title>文字自动滚屏</title>
+</head>
+<body onLoad="screenscroll();">
+<script>
+function screenscroll(){
+  var optlist = document.form1.Text1;
+  optlist[0] = null;
+  optlist.selectedIndex = 0;
+  setTimeout("screenscroll()",2000);
+}
+</script>
+<form >
+<select  size=8>
+<option>
+<option>世界名著及作者
+<option>乌托邦  作者：莫 尔 
+<option>威尼斯商人  作者：莎士比亚 
+<option>简.爱  作者：夏绿蒂.勃朗特 
+<option>唐璜  作者：拜 伦 
+<option>呼啸山庄  作者：艾米莉.勃朗特 
+<option>鲁宾逊飘流记  作者：笛 福 
+<option>名利场  作者：萨克雷 
+<option>傲慢与偏见  作者：简.奥斯丁 
+<option>双城记  作者：查尔斯.狄更斯 
+<option>恋爱中的女人  作者：D.H.劳伦斯  
+<option>新工具  作者：培 根 
+<option>政府论  作者：洛 克 
+<option>尤里西斯  作者：詹姆斯.乔伊斯 
+<option>赫克尔贝里.芬历险记  作者：马克.吐温 
+<option>老人与海  作者：海明威 
+<option>飘  作者：玛格丽特.米切尔 
+<option>嘉莉妹妹  作者：德莱塞 
+<option>小妇人  作者：路易莎.梅.奥尔科特 
+<option>悲惨世界  作者：雨果 
+<option>约翰.克里斯朵夫  作者：罗曼.罗兰 
+<option>幻灭  作者：巴尔扎克 
+<option>欧叶妮.格朗台  作者：巴尔扎克 
+<option>贝姨  作者：巴尔扎克 
+<option>邦斯舅舅  作者：巴尔扎克 
+<option>格兰特船长的儿女  作者：儒勒.凡尔纳 
+<option>漂亮朋友  作者：莫泊桑 
+<option>娜娜  作者：左 拉 
+<option>包法利夫人  作者：福楼拜 
+<option>基督山伯爵  作者：大仲马 
+<option>茶花女  作者：小仲马 
+<option>巴黎圣母院  作者：雨 果 
+<option>红与黑  作者：司汤达 
+<option>拿破仑法典 作者： 拿破仑 
+<option>人是机器  作者：拉美特里 
+<option>社会契约论  作者：卢 梭 
+<option>浮士德  作者：歌 德 
+<option>少年维特的烦恼  作者：歌 德 
+<option>希腊神话故事  作者：施瓦布 
+<option>战争论  作者：克劳塞维茨 
+<option>忏悔录  作者：奥古斯丁 
+<option>父与子  作者：屠格涅夫 
+<option>罪与罚  作者：陀思妥耶夫斯基 
+<option>安娜.卡列宁娜  作者：列夫.托尔斯泰 
+<option>复活  作者：列夫.托尔斯泰 
+<option>上尉的女儿  作者：普希金 
+<option>死魂灵  作者：果戈理 
+<option>童年  作者：高尔基 
+<option>我的大学  作者：高尔基 
+<option>钢铁是怎样炼成的  作者：尼.奥斯特洛夫斯基 
+<option>白痴  作者：陀思妥耶夫斯基 
+<option>伊索寓言  作者：伊索.拉封丹 
+<option>理想国  作者：柏拉图 
+<option>政治学  作者：亚里士多德 
+<option>安徒生童话  作者：安徒生 
+<option>牛虻  作者：伏尼契 
+<option>堂.吉诃德  作者：塞万提斯 
+<option>汉穆拉比法典  作者：汉穆拉比 
+<option>论神  作者：斯宾诺莎 
+<option>癞皮鹦鹉  作者：利萨尔迪 
+<option>太阳城  作者：康帕内拉 
+<option>性爱与文明  作者：弗洛伊德 
+<option>苔丝  作者：哈代 
+<option>拉摩的侄儿  作者：狄德罗 
+<option>理智与情感  作者：奥斯汀 
+<option>权力意志  作者：尼采 
+<option>苦闷的象征  作者：厨川白村 
+<option>梦的解析  作者：弗各伊德 
+<option>资本论  作者：马克思 
+<option>先知  作者：纪伯伦 
+<option>俄罗斯的童话  作者：高尔基 
+<option>桃色的云  作者：爱罗先轲 
+<option>水晶瓶塞  作者：莫里斯.勒布朗 
+<option>乡村医生  作者：巴尔扎克 
+<option>高龙巴  作者：梅里美 
+<option>黄室奇案  作者：嘉斯东.勒鲁 
+<option>克菜采奏鸣曲  作者：列.托尔斯泰 
+<option>阴谋与爱情  作者：席勒 
+<option>快乐王子  作者：王尔德 
+<option>变形记  作者：卡夫卡 
+<option>羊脂球  作者：莫泊桑 
+<option>魔沼  作者：乔治.桑 
+<option>死魂灵  作者：果戈里 
+<option>希腊棺材之谜  作者：奎恩 
+<option>母亲  作者：高尔基 
+<option>被背叛的遗嘱  作者：米兰.昆德拉 
+<option>毁灭  作者：法捷耶夫 
+<option>绞刑架下的报告  作者：伏契克 
+<option>贵族之家  作者：屠格涅夫 
+<option>冷血医生  作者：玛丽.希金斯.克拉克 
+<option>十日谈  作者：薄伽丘 
+<option>女富翁的遗产  作者：高木彬光 
+<option>绿野仙踪  作者：莱曼.弗兰.鲍姆 
+<option>法国中尉的女人  作者：约翰.福尔斯 
+<option>汤姆.索亚历险记  作者：马克.吐温 
+<option>马可.波罗游记  作者：马可.波罗 
+<option>卡门  作者：梅里美 
+<option>.美丽与悲哀  作者：川端康成 
+<option>野性的呼唤  作者：杰克.伦敦 
+<option>吉卜赛姑娘  作者：塞万提斯 
+<option>浅滩迷船  作者：里縸 
+</select>
+</form>
+</body>
+</html>
+
+```
+
+四十二、文字抖动
+--------
+
+1、实例描述：本实例是将一组文字按从左到右的顺序，将一定范围内的文字以凸起的状态向后移动，使文字出现动态的曲线效果，结果如下图所示：  
+
+![](https://pic1.zhimg.com/v2-9de4a3eabb0d92373e4a75004994335e_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要是将字符串中的每个汉字用层来进行显示，并将层的 id 用数字从小到大进行排列，并自定义一个数组（sumstr），用于改变字符串指定个数的高度。用 setTimeout() 方法调用自定义函数 dmove() 时，将字符串的位置向后移动一个汉字，当移动到最后一个文字时，将位置移动到第一个汉字，使其出现动态的抖动效果。其关键主要是通过 document.all(“aa”+(n+i2)) 来获取要移动的层，n 表示移动层的起始位置，i2 表示要移动层的个数的一个动态变量，并通过层的 style 样式的 top 属性来设置层在 x 轴上的位置。代码实现：
+
+```
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<title>文字抖动</title>
+</head>
+
+<body>
+<script>
+var str;
+var strlen=strname.length;
+var dstr="";
+var ssize=50;
+function fdiv(){
+  for (i=0;i<strlen;++i){
+    dstr=dstr+'<div id=aa'+i+'>'+strname.charAt(i)+'</div>';
+    ssize=ssize+22;
+  }
+  document.write(dstr);
+}
+fdiv();
+var sumstr=new Array(-1,-6,-10,-15,-10,-6,-1);
+var sublen=sumstr.length;
+var i=1;
+function dmove(){
+  var s="";
+  if (i!=1){Parray(i);}
+  Larray(i);
+  ++i;
+  if (i==strlen) i=0;
+  setTimeout("dmove()",100);
+}
+function Parray(n){
+  for (i1=1;i1<n;++i1){
+    ob=document.all("aa"+(i1));
+    ob.style.top=200+"px";
+  }
+}
+function Larray(n){
+  for (i2=0;i2<sublen;++i2){
+    if ((n+i2)<strlen){
+      ob=document.all("aa"+(n+i2));
+      ob.style.top=((200+sumstr[i2])+"px");
+    }
+  }
+}
+dmove();
+</script>
+</body>
+</html>
+
+```
+
+四十三、指向文字时飞出星形标记
+---------------
+
+1、实例描述：本实例是将鼠标移动到指定文字的上面时，动态显示一个星形标记，并不断的变大，鼠标移出该段文字时，飞出的星形标记将消失。结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-804dd8163bee6c1b5dbca41b423cbb6f_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要是通过层的 style 样式的 visibility 属性的 visible 和 hidden 值来动态设置层的显示和隐藏状态，并通过 window 对象的 event 对象的 x 和 y 属性来获取鼠标的当前位置。如果要使层在指定的位置显示，必须将层的 style 样式的 position 属性设为 absolute，使层为可移动状态，并通过对层的 style 样式的 fontSize 属性值进行递增修改，使层不断的变大。本实例是通过 setTimeout() 方法按指定的时间调用 divsize() 函数来改变层的大小，当动画结束时应用 window 对象的 clearTimeout() 方法将 setTimeout() 方法消除。代码实现：
+
+```
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<title>指向文字时飞出星形标记</title>
+</head>
+
+<body>
+<span>将鼠标指向这里:</span><a onMouseMove="move()" onMouseOut="return out();">将飞出一个星形标记</a>
+<div>☆</div>
+<script>
+div1.style.position="absolute";
+div1.style.visibility="hidden";
+var PT;
+var bool=false;
+var size=40;
+function out(){
+    div1.style.visibility="hidden";
+    div1.style.fontSize="40px";
+    size=40;
+    bool=false;
+    divsize();
+}
+function move(){
+    var x=window.event.x+document.body.clientLeft;
+    var y=window.event.y+document.body.clientTop;
+    div1.style.left=x;
+    div1.style.top=y;
+    div1.style.visibility="visible";
+    bool=true;
+    divsize();
+}
+function divsize(){
+    if (bool==true){
+        if (size>=200){out();}else{
+            size=size+2;
+            div1.style.fontSize=String(size)+"px";
+            PT=setTimeout("divsize()",200);
+        }
+    }else window.clearTimeout(PT);
+}
+</script>
+</body>
+</html>
+
+
+
+```
+
+四十四、下雪
+------
+
+1、实例描述：在浏览网页时，经常会看到一些动画效果，使页面显得更加生动，本实例在页面打开时，页面中将会出现下雪的效果。运行结果如下图所示：  
+
+![](https://pic1.zhimg.com/v2-d28fb620396d36bd203503a1dc452980_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要运用了 document 对象的 write() 方法在页面中添加层（
+
+），再用 Math 对象的 random() 方法来随机设置层的字体大小（使雪花大小不同），通过 window 对象的 setTimeout() 方法不断的修改层的 style 样式的 top 和 left 属性，使层在页面中不断的移动，形成下雪的效果。注意：如果要使层在页面中移动，必须将层的 style 样式的 position 属性值设为 absolute。代码实现：
+
+```
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<title>下雪</title>
+<style type="text/css">
+<!--
+body {
+    background-image: url("./images/1.jpg");
+}
+-->
+</style></head>
+
+<body>
+<script>
+drop = new Array(); xx = new Array(); yy = new Array(); mv = new Array();
+snowsym = "*";
+howmany = 15;     
+speed=50; drops=howmany; angle=6;
+movex = -speed/angle; movey = speed; count = 0;
+for(var i= 0; i < drops; i++){
+    document.write('<div>'+snowsym+'</div>');
+    drop[i] = eval("document.all['drop"+i+"'].style");
+    maxx = document.body.clientWidth-40;
+    maxy = document.body.clientHeight-40;
+    xx[i] = Math.random()*maxx;
+    yy[i] = -100-Math.random()*maxy;
+    drop[i].left = xx[i];
+    drop[i].top = yy[i];
+    mv[i] = (Math.random()*5)+speed/16;
+    drop[i].fontSize = (Math.random()*10)+10;
+    drop[i].color = "#FFFFFF";
+}
+function moverain(){
+    for(move = 0; move < drops; move++){
+        xx[move]+=movex;  yy[move]+=mv[move];
+        if(xx[move] < 0){xx[move] = maxx+10;}
+        if(yy[move] > maxy){yy[move] = 10;}
+        drop[move].left = xx[move];
+        drop[move].top = yy[move]+document.body.scrollTop;
+    }
+    setTimeout('moverain()','1');
+}
+moverain();
+</script>
+</body>
+</html>
+
+
+
+```
+
+四十五、下雨
+------
+
+1、实例描述：在浏览网页时，经常会看到一些动画效果，使页面显得更加生动，本实例在页面打开时，在页面上实现下雨的效果。运行结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-9a23614664a6b3504208c1e9babe3305_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要运用了 document 对象的 write() 方法在页面中添加层（
+
+），再用 window 对象的 setTimeout() 方法不断的修改层的 style 样式的 top 和 left 属性，使层在页面中不断的移动，形成下雨的效果。代码实现：
+
+```
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<title>下雨</title>
+<style type="text/css">
+<!--
+body {
+    background-image: url("./images/1.jpg");
+}
+-->
+</style></head>
+
+<body>
+<script>
+var no = 50;
+var speed = 1;
+var s, x, y, sn, cs;
+var a, r, cx, cy;
+var i;
+clientW = document.body.clientWidth;
+clientH = document.body.clientHeight;
+x = new Array();
+y = new Array();
+r = new Array();
+cx = new Array();
+cy = new Array();
+s = 20;
+for (i = 0; i < no; ++ i) {  
+    initRain();
+    document.write("<div id=dot"+ i +"  style='POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px'><font color='#FFFFFF'>.</font></div>");
+}
+function initRain() {
+    a = 6;
+    r[i] = 1;
+    sn = Math.sin(a);
+    cs = Math.cos(a);
+    cx[i] = Math.random() * clientW + 1;
+    cy[i] = Math.random() * clientH + 1;
+    x[i] = r[i] * sn + cx[i];
+    y[i] = cy[i];
+}
+function makeRain() {
+    r[i] = 1;
+    cx[i] = Math.random() * clientW + 1;
+    cy[i] = 1;
+    x[i] = r[i] * sn + cx[i];
+    y[i] = r[i] * cs + cy[i];
+}
+function updateRain() {
+    r[i] += s;
+    x[i] = r[i] * sn + cx[i];
+    y[i] = r[i] * cs + cy[i];
+}
+function raindropIE() {
+    for (i = 0; i < no; ++ i) {
+        updateRain();
+        if ((x[i] <= 1) || (x[i] >= (clientW - 20)) || (y[i] >= (clientH - 20))) {
+            makeRain();
+            clientW = document.body.clientWidth;
+            clientH = document.body.clientHeight;
+        }
+        document.all["dot"+i].style.top = y[i];
+        document.all["dot"+i].style.left = x[i];
+    }
+    setTimeout("raindropIE()", speed);
+}
+raindropIE();
+</script>
+</body>
+</html>
+
+
+
+```
+
+四十六、星空极速飞入效果
+------------
+
+1、实例描述：在浏览网页时，经常会看到一些动画效果，使页面显得更加生动，本实例在页面打开时，会在页面上产生一种星空的动态效果。运行结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-14a996232fae01adb8be2559cac34480_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要是对 style 样式的 position 属性进行设置，使层可以在页面中进行移动。下面对 position 属性进行详细说明。
+
+```
+position: static | absolute | relative
+/*参数说明:
+static：无特殊定位，对象遵循HTML定位规则。
+absolute：将对象从文档流中拖出，使用left、right、top、bottom等属性进行绝对定位。而其层叠通过z-index属性定义。此时对象不具有边距，但仍有补白和边框。
+relative：对象不可层叠，但将依据left、right、top、bottom等属性在正常文档流中移动位置。*/
+
+```
+
+代码实现：
+
+```
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<title>星空极速飞入效果</title>
+</head>
+
+<body>
+<script>
+xL=8; 
+xH=xW=xR=xE=xMY=xMX=xWd=xHd=0;
+xF=new Array();
+xY=new Array();
+xX=new Array();
+xS=new Array();
+xA=new Array();
+xB=new Array();
+ini=new Array();
+document.write('<div><div>');
+for (i=0; i < xL; i++){
+    document.write('<div>.</div>');
+}
+document.write('</div></div>');
+function Set(){
+    for (i=0; i < xL; i++){
+        transfer(i)
+        xF[i]=xW/14;
+    }
+}
+function Assign(){
+    sdiv.style.top=document.body.scrollTop;
+    for (i=0; i < xL; i++){
+        xF[i]-=xS[i]*25;
+        if (xF[i] < 4) xF[i]=3;
+        div[i].style.top =xY[i];
+        div[i].style.left=xX[i];
+        div[i].style.fontSize=xF[i];
+    }
+}
+function fly(){
+    xMY=window.document.body.clientHeight/2;
+    xMX=window.document.body.clientWidth/2;
+    xWd=Math.round(Math.random()*40+5);
+    xHd=Math.round(Math.random()*30+5);
+    for (i=0; i < xL; i++){
+        xY[i]=xA[i]+=(xMY-xA[i])*(xS[i]);              
+        xX[i]=xB[i]+=(xMX-xB[i])*(xS[i]);  
+        if ((xX[i] > xMX-xWd) && (xX[i] < xMX+xWd) && (xY[i] > xMY-xHd) && (xY[i] < xMY+xHd)){
+            transfer(i)
+        }
+        if ((xX[i]<0)||(xX[i]>xW)||(xY[i]<0)||(xY[i]>xH)){
+            xF[i]=xW/14;
+        }
+    }
+    Assign();
+    setTimeout('fly()',1);
+}
+function transfer(i){
+    xH=window.document.body.offsetHeight;
+    xW=window.document.body.offsetWidth;
+    xA[i]=Math.round(Math.random()*xH);
+    xB[i]=Math.round(Math.random()*xW);
+    xS[i]=Math.random()*0.05+0.05;
+    xR=Math.round(Math.random()*3);
+    xE=Math.round(Math.random()*50+50);
+    if (xR == 3) xB[i]=-xE;
+    if (xR == 2) xB[i]=xW+xE;
+    if (xR == 1) xA[i]=-xE;
+    if (xR == 0) xA[i]=xH;
+}
+Set();
+fly();
+</script>
+</body>
+</html>
+
+```
+
+四十七、闪烁的星星特效
+-----------
+
+1、实例描述：在浏览网页时，经常会看到一些动画效果，使页面显得更加生动，运行结果如下图所示：  
+
+![](https://picx.zhimg.com/v2-6b607a697c9ce6cfd10dd9a5e2a36644_r.jpg?source=2c26e567)
+
+  
+2、技术要点：本实例主要是用层的 style 样式的 left 属性来设定层的左端位置，并用 style 样式的 top 属性来随机设定层的顶端位置。document 对象的 body 的 clientHeight 属性用来获取对象的高度，不计算任何边距、边框、滚动条或可能应用到该对象的补白。Math 对象的 random() 方法用来获取 0～1（包含 0，不包含 1）之间的随机数。代码实现：
+
+```
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<title>闪烁的星星</title>
+    <style type="text/css">
+        body {
+            background-image: url("./images/1.jpg");
+        }
+    </style>
+</head>
+
+<body onLoad="start()">
+<script>
+    function move(){    
+        for(i=1;i<=10;i++)
+            eval("div"+i).style.top=gettop();
+    }       
+    function gettop(){
+        var t=String(Math.floor(Math.random()*(document.body.clientHeight/2)))+"px";
+        return(t);
+    }
+    function vision(){
+        for(i=1;i<=10;i++)
+        eval("div"+i).style.visibility="visible";
+    }
+    function start(){
+        setInterval("move()",1000);
+        vision();
+    }
+    for(i=1;i<=10;i++){
+        var p=Math.floor(Math.random()*5)+9*(i-1);
+        document.write("<div id=\"div"+i+"\" style=\"position:absolute;top:-30px;left:"+p+"%;width:21;height:21;visibility:hidden;\"><dd><img src=\"\./images/star.gif\" WIDTH=\"21\" HEIGHT=\"29\"></dd></div>");
+    }   
+</script>
+</body>
+</html>
+
+```
+
+四十八、背景固定居中
+----------
+
+1、实例描述：在制作网页时，为了使网页更加美观，在页面背景中会添加一个图片，但有时因图片过小，在页面中会重复显示图片，这样，反而破坏了页面的美观性。本实例将使页面中的背景固定居中，当页面内容过多时，无论怎样移动滚动条，背景图片始终固定居中。运行结果如下图所示：
+
+![](https://picx.zhimg.com/v2-6b8c6034933674542edeaa3e18618205_r.jpg?source=2c26e567)
+
+2、技术要点：本实例主要通过 body 对象的 style 样式中的 backgroundImage、backgroundPosition、backgroundRepeat 和 backgroundAttachment 属性在页面中添加背景图片，并对图片进行居中显示。代码实现：
+
+```
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<title>背景固定居中</title>
+</head>
+
+<body>
+<table width="318" height="1081" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td> </td>
+  </tr>
+</table>
+<p>
+<script>
+document.body.style.backgroundImage="URL('./images/2.jpg')";
+document.body.style.backgroundPosition="center";
+document.body.style.backgroundRepeat="no-repeat";
+document.body.style.backgroundAttachment="fixed";
+</script>
+</p>
+</body>
+</html>
+
+```
+
+写在最后的话
+------
+
+大家看完有什么不懂的可以在下方留言讨论，也可以私信问我一般看到后我都会回复的。最后觉得文章对你有帮助的话记得点个赞哦，点点关注不迷路
+
+[@终端研发部](https://www.zhihu.com/people/0562ae57ba411b146099313075609e94)
+
+每天都有新鲜的干货分享！
+
+参考
+
+作者：Amo Xiang  
+连接：[https://blog.csdn.net/xw1680/article/details/118065460](https://link.zhihu.com/?target=https%3A//blog.csdn.net/xw1680/article/details/118065460)
+
+![](https://pic1.zhimg.com/v2-2dee26e180b8365a3a2c2a91943b15fa_l.jpg?source=1940ef5c)逝者如斯
+
+
+先不说 3d 效果，就论一个平面上的话，
+
+只用一行 div，无 js，就可以画一幅世界名画蒙娜丽莎，CSS 博大精深→ _→
+
+[Mona Lisa with pure CSS](https://link.zhihu.com/?target=http%3A//codepen.io/jaysalvat/pen/HaqBf)  
+![](https://picx.zhimg.com/93b628b8cddf83652deef756fe92c8d4_r.jpg?source=1940ef5c)  
+
+虽然作者不是手写的，但至少另一个角度说明 css 可以做到这样的效果，画画不只有 canvas，svg 等。。。
+
+下面有小伙伴提到了刚出来时很火的 “纯 CSS 技术画出 30 个濒危动物图片”，这里一并列出并给出网址，
+
+“30 个物种，30 中碎片拼图。” 点开这场展览的网站主页，空灵的背景音乐引入了颜色饱满的多边形图案，配合着 30 种濒危动物的文字介绍。而之所以叫 “30 片三角”，是因为 James 起初在摆弄编程的时候，第一幅成型的作品 “夏威夷乌鸦”，刚刚好是 30 片三角形拼接而成。
+
+但这次展览拼的不是技术或着艺术。伴随 30 只生命样貌的切换，一幅幅几何状组合的破碎，设计师试图展现过去 10 年来栖息地遭受破坏是如何把动物推向灭绝的边缘——曾是 2014 年巴西世界杯吉祥物的三带犰狳（ Three-Banded Armadillo of Brazil）数量减少了 30%，新几内亚岛上的原针鼹鼠（ Long-Beaked Echidna ）因人类的狩猎而在过去 35-40 年间减少近 80%。
+
+**官方网址：**
+
+[30 个 CSS 碎片拼图，30 种濒临灭绝动物](https://link.zhihu.com/?target=http%3A//www.webhek.com/misc-res/species-in-pieces/%23)
+
+(官网需要 fanqiang 查看)
+
+无论是背景音的选用，还是动物样貌之间的切换，抑或是细节处的动效展现，再加上主题的升华，有技术有内涵，这是一部成功的作品。
+
+![](https://picx.zhimg.com/b80d46ba4d80f53216266ddd9af906cd_r.jpg?source=1940ef5c)  
+
+可以闲来无事画画小动物：
+
+![](https://pica.zhimg.com/189d9eecd5e6bda2a2d5d163c992de7e_r.jpg?source=1940ef5c)  
+
+打打灰机：
+
+[Airplane (Pure CSS)](https://link.zhihu.com/?target=http%3A//codepen.io/dogagenc/pen/xbRKZx)![](https://pic1.zhimg.com/f693aa75c0df34cf963cb89fbbd315d0_r.jpg?source=1940ef5c)  
+[CSS Faces](https://link.zhihu.com/?target=http%3A//codepen.io/rachel_web/pen/doaPWN)  
+![](https://picx.zhimg.com/a3ee0138dac2feb2327bea44fc0a7d7f_r.jpg?source=1940ef5c)  
+
+这些都是静止的，想想再加上各种动画，也可以做出很多效果出来的。
+
+CSS3D 苹果笔记本动画：
+
+这又是一款超酷的 CSS3 3D 动画效果，它是一款带有 3D 视觉效果，并且可以 360 度旋转的 macbook air。这款 CSS3 3D 动画的笔记本底部有一个逼真的投影，可以跟随图片一起转动，从而凸显其 3D 效果，是一款很不错的 CSS3 3D 动画特效
+
+[CSS3 3D 苹果笔记本动画 DEMO 演示](https://link.zhihu.com/?target=http%3A//www.html5tricks.com/demo/css3-3d-macbook-air/index.html)  
+![](https://picx.zhimg.com/50/a51c0cd2731b33ef479573abbcc7e67a_720w.jpg?source=1940ef5c)  
+[CSS3 扇形动画菜单 DEMO 演示](https://link.zhihu.com/?target=http%3A//www.html5tricks.com/demo/css3-sector-menu/index.html)  
+![](https://picx.zhimg.com/50/915aca553597e8e589589e22a05d0373_720w.jpg?source=1940ef5c)  
+
+
+我们知道 js 在 web 方面能做很多事
+
+有一句话说：_**限制你的可选项，会让你重新评估手头上已有的工具。**_
+
+如果只让你用 css，能完成某项任务吗？而这个任务中，只用一个 div，全靠 css 属性来实现效果，可以吗？
+
+可以看看翻译的一篇
+
+**_[基于单个 Div 的 CSS 绘图 - 前端外刊评论 - 知乎专栏](http://zhuanlan.zhihu.com/FrontendMagazine/19854868)：_**
+
+“为了得到更大的挑战，探索 CSS 的潜力，我给自己定了这个限制，只是用一个 Div。不能直接买一只绿色的笔（添加更多的 Div），我要做的就是尽其所能地结合 CSS 属性来实现我的目的。”
+
+以下这些都是基于一个 div 所做的：
+
+[A Single Div](https://link.zhihu.com/?target=http%3A//a.singlediv.com/)![](https://pic1.zhimg.com/1db5952700594b2efe54cafc6516e4ce_r.jpg?source=1940ef5c)  
+
+
+做一个动态的旋转木马给妹纸，立马少女心泛滥有木有 (星星眼)：
+
+[Horse ride carousel flat design by Lina for Zajno (3D animated with CSS3)](https://link.zhihu.com/?target=http%3A//codepen.io/gxash/pen/rLLyvq)![](https://pic1.zhimg.com/15921878862b63fc874d74a3485a46b8_r.jpg?source=1940ef5c)  
+
+css 可以用来做图像，做完图像还可以用 css 添加动画，能做成什么样还要看你的想象力了。再加上合适的主题，就能做出一件成功的作品。
+
+还有动态的车子：
+
+[Bike Season](https://link.zhihu.com/?target=http%3A//codepen.io/jonsuh/pen/qNOxLK)![](https://picx.zhimg.com/a92369634f14262e66445d3a5d674d82_r.jpg?source=1940ef5c)  
+
+上面两个例子来自 can you code this ui
+
+[https://stories.uplabs.com/can-you-code-this-ui-4530315290a1#.65da2m9rs](https://link.zhihu.com/?target=https%3A//stories.uplabs.com/can-you-code-this-ui-4530315290a1%23.65da2m9rs)  
+
+css 可以用来做图像，做完图像还可以用 css 添加动画，能做成什么样还要看你的想象力了。再加上合适的主题，就能做出一件成功的作品。
+
+![](https://pic1.zhimg.com/v2-7b157ace53f108d892c7a0cc97fb9dfd_l.jpg?source=1940ef5c)几木​​ 冰墩墩（英文：Bing Dwen Dwen，汉语拼音：bīng dūn dūn），是 [2022 年北京冬季奥运会](https://link.zhihu.com/?target=https%3A//baike.baidu.com/item/2022%25E5%25B9%25B4%25E5%258C%2597%25E4%25BA%25AC%25E5%2586%25AC%25E5%25AD%25A3%25E5%25A5%25A5%25E8%25BF%2590%25E4%25BC%259A/12061628) 的吉祥物。 [3] 将熊猫形象与富有超能量的冰晶外壳相结合，头部外壳造型取自冰雪运动头盔，装饰彩色光环，整体形象酷似航天员。
+
+以前面试总被问，如何用 CSS 画一个三角形。今天我想玩点大的，用 CSS 画个冰墩墩！
+
+1 基础结构
+------
+
+结构划分
+----
+
+首先看下官方这张图。
+
+![](https://pic1.zhimg.com/v2-4a12626fed45c7d86a7b9e90abebfce7_r.jpg?source=1940ef5c)
+
+我们可以把各个部分拆成 div，再给 div 分别做 CSS，最终拼成整幅图。
+
+```
+<div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+</div>
+
+```
+
+对这个分法你可能有很多问号，比如：
+
+*   一个 div 能画出这么复杂的东西？
+*   为什么两只眼睛分一个 div ？为什么瞳孔反而要单独分？
+
+后面的操作会给你答案。
+
+绝对定位和图层
+-------
+
+然后我们给所有 div 一个绝对定位：
+
+```
+.bingdundun-container {
+  position: relative;
+  div {
+    position: absolute;
+  }
+}
+
+```
+
+这样就像 sketch、ps 一样，我们有了很多图层。绝对定位下，图层是有上下顺序的，这也是前面划分结构的一个依据。
+
+但 CSS 的能力不止于此，通过伪元素，一个 div 理论上可以提供三个图层：自身、before、after。我们给他们也统一加上。
+
+```
+.bingdundun-container {
+  div {
+    &:before,
+    &:after {
+        position: absolute;
+        content: '';
+    }
+  }
+}
+
+```
+
+2 动手
+----
+
+接下来我们要挨个部分画图了，其中夹杂引入属性的简单说明，一口饭一口菜。
+
+身体
+--
+
+冰墩墩的身体是一个类似蛋的形状，头顶要比脚下圆润些，这个好做，一组 border + radius 搞定。
+
+```
+.bingdundun-container {
+  width: 488px;
+  height: 557px;
+  left: 255px;
+  top: 158px;
+  border: 10px solid #000;
+  background: #fff;
+  border-top-left-radius: 240px;
+  border-top-right-radius: 240px;
+  border-bottom-left-radius: 194px 253px;
+  border-bottom-right-radius: 194px 253px;
+}
+
+```
+
+得到一个蛋
+
+![](https://picx.zhimg.com/v2-387a0c3c7329fc21d6744f8dbb480611_r.jpg?source=1940ef5c)
+
+### 知识点 1：border-radius 让方盒子圆起来
+
+border-radius 可以用来实现不规则椭圆。  
+四个角的 radius 可以单独设置，每个 radius 又可以单独设置两个方向的。  
+
+耳朵
+--
+
+耳朵也差不多，两个蛋，放在一个 div 里，因为我们前面说过，一个 div 至多可以提供三个图层
+
+```
+.ear {
+  &::before, &::after {
+    width: 98px;
+    height: 125px;
+    background: #000;
+    border-radius: 50%;
+  }
+  &::after {
+    left: 596px;
+  }
+}
+
+```
+
+因为 div 顺序靠前，下半部分正好被身体压掉。
+
+![](https://pic1.zhimg.com/v2-2ca3c5d06409e8eee65188bffc0d3cbb_r.jpg?source=1940ef5c)
+
+左手
+--
+
+左手类似一个水滴的形状，看似可以尝试比较大的 border radius，但实际行不通，可以用一个圆形 + 一个三角形拼起来。其中三角形用 border 实现。
+
+```
+.hand-left {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #000;
+  &::before {
+    width: 0;
+    height: 0;
+    border: 50px solid;
+    border-color: transparent #000 #000 transparent;
+  }
+}
+
+```
+
+![](https://picx.zhimg.com/v2-59e40752266e7d36dab2669fffd36c3c_r.jpg?source=1940ef5c)
+
+### 知识点 2 ：巧用 border 画三角形
+
+元素四个方向的 border 是沿 content box、border box 角的连线分割的，可以画出三角形、梯形。  
+
+右手
+--
+
+右手是一个椭圆 + 一颗心（拆成两个椭圆拼起来），三个图层正好够用。又引入了 transform rotate 属性。
+
+```
+.hand-right {
+  width: 89px;
+  height: 176px;
+  background: #000;
+  transform: rotate(30deg);
+  border-bottom-right-radius: 89px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 49px;
+  &::before {
+    width: 16px;
+    height: 30px;
+    transform: rotate(19deg);
+    background: red;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 16px;
+  }
+  &::after {
+    width: 16px;
+    height: 30px;
+    transform: rotate(-71deg);
+    background: red;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 16px;
+  }
+}
+
+```
+
+![](https://picx.zhimg.com/v2-0ee784aaa546168ab5ac7c8475d7b071_r.jpg?source=1940ef5c)
+
+### 知识点 3 ：transform 改变元素形状
+
+transform 可以改变元素的形状，比如 rotate 来旋转角度。  
+除了 rotate，skew 也常用来实现菱形等。  
+
+脚
+-
+
+这个脚看起来有点难办，虽然是圆角类似椭圆，但几个方向比较刁钻。这里果断拆分成两部分，一部分堆在身体下，一部分堆在身体上。稍微调整下 html。
+
+```
+<div></div>
+<div></div>
+<div></div>
+
+```
+
+**身体下部分**
+
+```
+.foot-bottom {
+  left: 500px;
+  top: 677px;
+  &::before {
+    right: 36px;
+    width: 115px;
+    height: 116px;
+    background: #000;
+    border-top-left-radius: 9px 90px;
+    border-top-right-radius: 9px 83px;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 14px;
+  }
+  &::after {
+    left: 36px;
+    width: 115px;
+    height: 116px;
+    background: #000;
+    border-top-right-radius: 9px 90px;
+    border-top-left-radius: 9px 83px;
+    border-bottom-right-radius: 35px;
+    border-bottom-left-radius: 14px;
+  }
+}
+
+```
+
+发现没，两只脚对称，这里的元素本身定到中间，本身没什么意义，但两伪元素就可以对称写了，非常方便。
+
+![](https://pic1.zhimg.com/v2-af0bdbb37247daee231be254679d8e10_r.jpg?source=1940ef5c)
+
+**身体上部分**
+
+一样对称画。
+
+```
+.foot-top {
+  left: 500px;
+  top: 677px;
+  &::before {
+    right: 38px;
+    width: 100px;
+    height: 37px;
+    background: #000;
+    border-top-right-radius: 100%;
+  }
+  &::after {
+    left: 38px;
+    width: 100px;
+    height: 37px;
+    background: #000;
+    border-top-left-radius: 100%;
+  }
+}
+
+```
+
+正好和身体下的部分叠在一起。
+
+![](https://pic1.zhimg.com/v2-a03b32594261c03f3e4b331b7c21ad09_r.jpg?source=1940ef5c)
+
+脸的轮廓
+----
+
+脸的轮廓是几圈彩色套在一起的。
+
+一圈好办，给个 border 就好了；三圈也好办，大不了用两个伪元素。更多圈怎么办呢？我们可以用 box-shadow。
+
+```
+.face {
+  width: 400px;
+  height: 320px;
+  border-top-left-radius: 50% 60%;
+  border-top-right-radius: 50% 60%;
+  border-bottom-left-radius: 41% 42%;
+  border-bottom-right-radius: 41% 42%;
+  box-shadow: 0 0 0 5px #006BB0, 0 0 0 10px #DC2F1F, 0 0 0 15px #1D1815, 0 0 0 20px #EFA90D, 0 0 0 25px #059341;
+}
+
+```
+
+![](https://pic1.zhimg.com/v2-04430c90f17a0e3ec1b5f224d1bd8d5b_r.jpg?source=1940ef5c)
+
+### 知识点 4 ：box-shadow 强大的复印机
+
+box-shadow 可以无限次声明同一个元素的阴影，并可以自定义偏移、扩展、颜色。  
+
+这就很有想象空间了，像一个复印机：
+
+*   调整扩展，可以无限增加元素的 border 层数，比如上面的用法。
+*   调整偏移，可以把元素形状复制到任意位置。
+*   关键是，任何一次复印都可以单独改变颜色！
+
+以前有个 CSSer 无聊，用 box-shadow 画了蒙娜丽莎：[https://codepen.io/jaysalvat/pen/kazzOj](https://link.zhihu.com/?target=https%3A//codepen.io/jaysalvat/pen/kazzOj)
+
+眼睛、鼻子、嘴
+-------
+
+一样思路，用 border-radius、transform、border 等前面提到的属性
+
+![](https://picx.zhimg.com/v2-5727e2bbbbe9f5dd682d8a14c50cf805_r.jpg?source=1940ef5c)
+
+瞳孔
+--
+
+这个本来也挺简单，对称两个带 border 的圆，但有一个小细节，就是瞳孔上水灵灵的眼光，是不对称的。
+
+那怎么办？div 自己居中定位不是闲着么，让他用 box-shadow 打出来就好了。
+
+```
+.eye-hole {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  box-shadow: -75px 19px #fff, 81px 19px #fff;
+}
+
+```
+
+完成
+--
+
+至此，冰墩墩就画完了。
+
+![](https://pica.zhimg.com/v2-788c833918263ee645ccc2ff673670cb_r.jpg?source=1940ef5c)
+
+快学去哄抢不到冰墩墩的小朋友吧～～
+
+附：完整代码 + 度熊，欢迎一起玩耍
+
+[](https://link.zhihu.com/?target=https%3A//github.com/HenryLulu/css-draw)
