@@ -1,0 +1,450 @@
+---
+title: '实用css特效2'
+date: '2023-11-03'
+tags: ['css','web']
+draft: false
+summary: '分享十几个 CSS 开发者必须知道的有趣 CSS 效果代码'
+images: []
+---
+
+<TOCInline toc={props.toc} exclude="Introduction" />
+
+
+[@终端研发部](https://www.zhihu.com/people/0562ae57ba411b146099313075609e94)
+
+每天都有新鲜的干货分享！
+
+参考
+
+作者：Amo Xiang  
+连接：[https://blog.csdn.net/xw1680/article/details/118065460](https://link.zhihu.com/?target=https%3A//blog.csdn.net/xw1680/article/details/118065460)
+
+![](https://pic1.zhimg.com/v2-2dee26e180b8365a3a2c2a91943b15fa_l.jpg?source=1940ef5c)逝者如斯
+
+
+先不说 3d 效果，就论一个平面上的话，
+
+只用一行 div，无 js，就可以画一幅世界名画蒙娜丽莎，CSS 博大精深→ _→
+
+[Mona Lisa with pure CSS](https://link.zhihu.com/?target=http%3A//codepen.io/jaysalvat/pen/HaqBf)  
+![](https://picx.zhimg.com/93b628b8cddf83652deef756fe92c8d4_r.jpg?source=1940ef5c)  
+
+虽然作者不是手写的，但至少另一个角度说明 css 可以做到这样的效果，画画不只有 canvas，svg 等。。。
+
+下面有小伙伴提到了刚出来时很火的 “纯 CSS 技术画出 30 个濒危动物图片”，这里一并列出并给出网址，
+
+“30 个物种，30 中碎片拼图。” 点开这场展览的网站主页，空灵的背景音乐引入了颜色饱满的多边形图案，配合着 30 种濒危动物的文字介绍。而之所以叫 “30 片三角”，是因为 James 起初在摆弄编程的时候，第一幅成型的作品 “夏威夷乌鸦”，刚刚好是 30 片三角形拼接而成。
+
+但这次展览拼的不是技术或着艺术。伴随 30 只生命样貌的切换，一幅幅几何状组合的破碎，设计师试图展现过去 10 年来栖息地遭受破坏是如何把动物推向灭绝的边缘——曾是 2014 年巴西世界杯吉祥物的三带犰狳（ Three-Banded Armadillo of Brazil）数量减少了 30%，新几内亚岛上的原针鼹鼠（ Long-Beaked Echidna ）因人类的狩猎而在过去 35-40 年间减少近 80%。
+
+**官方网址：**
+
+[30 个 CSS 碎片拼图，30 种濒临灭绝动物](https://link.zhihu.com/?target=http%3A//www.webhek.com/misc-res/species-in-pieces/%23)
+
+(官网需要 fanqiang 查看)
+
+无论是背景音的选用，还是动物样貌之间的切换，抑或是细节处的动效展现，再加上主题的升华，有技术有内涵，这是一部成功的作品。
+
+![](https://picx.zhimg.com/b80d46ba4d80f53216266ddd9af906cd_r.jpg?source=1940ef5c)  
+
+可以闲来无事画画小动物：
+
+![](https://pica.zhimg.com/189d9eecd5e6bda2a2d5d163c992de7e_r.jpg?source=1940ef5c)  
+
+打打灰机：
+
+[Airplane (Pure CSS)](https://link.zhihu.com/?target=http%3A//codepen.io/dogagenc/pen/xbRKZx)![](https://pic1.zhimg.com/f693aa75c0df34cf963cb89fbbd315d0_r.jpg?source=1940ef5c)  
+[CSS Faces](https://link.zhihu.com/?target=http%3A//codepen.io/rachel_web/pen/doaPWN)  
+![](https://picx.zhimg.com/a3ee0138dac2feb2327bea44fc0a7d7f_r.jpg?source=1940ef5c)  
+
+这些都是静止的，想想再加上各种动画，也可以做出很多效果出来的。
+
+CSS3D 苹果笔记本动画：
+
+这又是一款超酷的 CSS3 3D 动画效果，它是一款带有 3D 视觉效果，并且可以 360 度旋转的 macbook air。这款 CSS3 3D 动画的笔记本底部有一个逼真的投影，可以跟随图片一起转动，从而凸显其 3D 效果，是一款很不错的 CSS3 3D 动画特效
+
+[CSS3 3D 苹果笔记本动画 DEMO 演示](https://link.zhihu.com/?target=http%3A//www.html5tricks.com/demo/css3-3d-macbook-air/index.html)  
+![](https://picx.zhimg.com/50/a51c0cd2731b33ef479573abbcc7e67a_720w.jpg?source=1940ef5c)  
+[CSS3 扇形动画菜单 DEMO 演示](https://link.zhihu.com/?target=http%3A//www.html5tricks.com/demo/css3-sector-menu/index.html)  
+![](https://picx.zhimg.com/50/915aca553597e8e589589e22a05d0373_720w.jpg?source=1940ef5c)  
+
+
+我们知道 js 在 web 方面能做很多事
+
+有一句话说：_**限制你的可选项，会让你重新评估手头上已有的工具。**_
+
+如果只让你用 css，能完成某项任务吗？而这个任务中，只用一个 div，全靠 css 属性来实现效果，可以吗？
+
+可以看看翻译的一篇
+
+**_[基于单个 Div 的 CSS 绘图 - 前端外刊评论 - 知乎专栏](http://zhuanlan.zhihu.com/FrontendMagazine/19854868)：_**
+
+“为了得到更大的挑战，探索 CSS 的潜力，我给自己定了这个限制，只是用一个 Div。不能直接买一只绿色的笔（添加更多的 Div），我要做的就是尽其所能地结合 CSS 属性来实现我的目的。”
+
+以下这些都是基于一个 div 所做的：
+
+[A Single Div](https://link.zhihu.com/?target=http%3A//a.singlediv.com/)![](https://pic1.zhimg.com/1db5952700594b2efe54cafc6516e4ce_r.jpg?source=1940ef5c)  
+
+
+做一个动态的旋转木马给妹纸，立马少女心泛滥有木有 (星星眼)：
+
+[Horse ride carousel flat design by Lina for Zajno (3D animated with CSS3)](https://link.zhihu.com/?target=http%3A//codepen.io/gxash/pen/rLLyvq)![](https://pic1.zhimg.com/15921878862b63fc874d74a3485a46b8_r.jpg?source=1940ef5c)  
+
+css 可以用来做图像，做完图像还可以用 css 添加动画，能做成什么样还要看你的想象力了。再加上合适的主题，就能做出一件成功的作品。
+
+还有动态的车子：
+
+[Bike Season](https://link.zhihu.com/?target=http%3A//codepen.io/jonsuh/pen/qNOxLK)![](https://picx.zhimg.com/a92369634f14262e66445d3a5d674d82_r.jpg?source=1940ef5c)  
+
+上面两个例子来自 can you code this ui
+
+[https://stories.uplabs.com/can-you-code-this-ui-4530315290a1#.65da2m9rs](https://link.zhihu.com/?target=https%3A//stories.uplabs.com/can-you-code-this-ui-4530315290a1%23.65da2m9rs)  
+
+css 可以用来做图像，做完图像还可以用 css 添加动画，能做成什么样还要看你的想象力了。再加上合适的主题，就能做出一件成功的作品。
+
+![](https://pic1.zhimg.com/v2-7b157ace53f108d892c7a0cc97fb9dfd_l.jpg?source=1940ef5c)几木​​ 冰墩墩（英文：Bing Dwen Dwen，汉语拼音：bīng dūn dūn），是 [2022 年北京冬季奥运会](https://link.zhihu.com/?target=https%3A//baike.baidu.com/item/2022%25E5%25B9%25B4%25E5%258C%2597%25E4%25BA%25AC%25E5%2586%25AC%25E5%25AD%25A3%25E5%25A5%25A5%25E8%25BF%2590%25E4%25BC%259A/12061628) 的吉祥物。 [3] 将熊猫形象与富有超能量的冰晶外壳相结合，头部外壳造型取自冰雪运动头盔，装饰彩色光环，整体形象酷似航天员。
+
+以前面试总被问，如何用 CSS 画一个三角形。今天我想玩点大的，用 CSS 画个冰墩墩！
+
+1 基础结构
+------
+
+结构划分
+----
+
+首先看下官方这张图。
+
+![](https://pic1.zhimg.com/v2-4a12626fed45c7d86a7b9e90abebfce7_r.jpg?source=1940ef5c)
+
+我们可以把各个部分拆成 div，再给 div 分别做 CSS，最终拼成整幅图。
+
+```
+<div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+</div>
+
+```
+
+对这个分法你可能有很多问号，比如：
+
+*   一个 div 能画出这么复杂的东西？
+*   为什么两只眼睛分一个 div ？为什么瞳孔反而要单独分？
+
+后面的操作会给你答案。
+
+绝对定位和图层
+-------
+
+然后我们给所有 div 一个绝对定位：
+
+```
+.bingdundun-container {
+  position: relative;
+  div {
+    position: absolute;
+  }
+}
+
+```
+
+这样就像 sketch、ps 一样，我们有了很多图层。绝对定位下，图层是有上下顺序的，这也是前面划分结构的一个依据。
+
+但 CSS 的能力不止于此，通过伪元素，一个 div 理论上可以提供三个图层：自身、before、after。我们给他们也统一加上。
+
+```
+.bingdundun-container {
+  div {
+    &:before,
+    &:after {
+        position: absolute;
+        content: '';
+    }
+  }
+}
+
+```
+
+2 动手
+----
+
+接下来我们要挨个部分画图了，其中夹杂引入属性的简单说明，一口饭一口菜。
+
+身体
+--
+
+冰墩墩的身体是一个类似蛋的形状，头顶要比脚下圆润些，这个好做，一组 border + radius 搞定。
+
+```
+.bingdundun-container {
+  width: 488px;
+  height: 557px;
+  left: 255px;
+  top: 158px;
+  border: 10px solid #000;
+  background: #fff;
+  border-top-left-radius: 240px;
+  border-top-right-radius: 240px;
+  border-bottom-left-radius: 194px 253px;
+  border-bottom-right-radius: 194px 253px;
+}
+
+```
+
+得到一个蛋
+
+![](https://picx.zhimg.com/v2-387a0c3c7329fc21d6744f8dbb480611_r.jpg?source=1940ef5c)
+
+### 知识点 1：border-radius 让方盒子圆起来
+
+border-radius 可以用来实现不规则椭圆。  
+四个角的 radius 可以单独设置，每个 radius 又可以单独设置两个方向的。  
+
+耳朵
+--
+
+耳朵也差不多，两个蛋，放在一个 div 里，因为我们前面说过，一个 div 至多可以提供三个图层
+
+```
+.ear {
+  &::before, &::after {
+    width: 98px;
+    height: 125px;
+    background: #000;
+    border-radius: 50%;
+  }
+  &::after {
+    left: 596px;
+  }
+}
+
+```
+
+因为 div 顺序靠前，下半部分正好被身体压掉。
+
+![](https://pic1.zhimg.com/v2-2ca3c5d06409e8eee65188bffc0d3cbb_r.jpg?source=1940ef5c)
+
+左手
+--
+
+左手类似一个水滴的形状，看似可以尝试比较大的 border radius，但实际行不通，可以用一个圆形 + 一个三角形拼起来。其中三角形用 border 实现。
+
+```
+.hand-left {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #000;
+  &::before {
+    width: 0;
+    height: 0;
+    border: 50px solid;
+    border-color: transparent #000 #000 transparent;
+  }
+}
+
+```
+
+![](https://picx.zhimg.com/v2-59e40752266e7d36dab2669fffd36c3c_r.jpg?source=1940ef5c)
+
+### 知识点 2 ：巧用 border 画三角形
+
+元素四个方向的 border 是沿 content box、border box 角的连线分割的，可以画出三角形、梯形。  
+
+右手
+--
+
+右手是一个椭圆 + 一颗心（拆成两个椭圆拼起来），三个图层正好够用。又引入了 transform rotate 属性。
+
+```
+.hand-right {
+  width: 89px;
+  height: 176px;
+  background: #000;
+  transform: rotate(30deg);
+  border-bottom-right-radius: 89px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 49px;
+  &::before {
+    width: 16px;
+    height: 30px;
+    transform: rotate(19deg);
+    background: red;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 16px;
+  }
+  &::after {
+    width: 16px;
+    height: 30px;
+    transform: rotate(-71deg);
+    background: red;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 16px;
+  }
+}
+
+```
+
+![](https://picx.zhimg.com/v2-0ee784aaa546168ab5ac7c8475d7b071_r.jpg?source=1940ef5c)
+
+### 知识点 3 ：transform 改变元素形状
+
+transform 可以改变元素的形状，比如 rotate 来旋转角度。  
+除了 rotate，skew 也常用来实现菱形等。  
+
+脚
+-
+
+这个脚看起来有点难办，虽然是圆角类似椭圆，但几个方向比较刁钻。这里果断拆分成两部分，一部分堆在身体下，一部分堆在身体上。稍微调整下 html。
+
+```
+<div></div>
+<div></div>
+<div></div>
+
+```
+
+**身体下部分**
+
+```
+.foot-bottom {
+  left: 500px;
+  top: 677px;
+  &::before {
+    right: 36px;
+    width: 115px;
+    height: 116px;
+    background: #000;
+    border-top-left-radius: 9px 90px;
+    border-top-right-radius: 9px 83px;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 14px;
+  }
+  &::after {
+    left: 36px;
+    width: 115px;
+    height: 116px;
+    background: #000;
+    border-top-right-radius: 9px 90px;
+    border-top-left-radius: 9px 83px;
+    border-bottom-right-radius: 35px;
+    border-bottom-left-radius: 14px;
+  }
+}
+
+```
+
+发现没，两只脚对称，这里的元素本身定到中间，本身没什么意义，但两伪元素就可以对称写了，非常方便。
+
+![](https://pic1.zhimg.com/v2-af0bdbb37247daee231be254679d8e10_r.jpg?source=1940ef5c)
+
+**身体上部分**
+
+一样对称画。
+
+```
+.foot-top {
+  left: 500px;
+  top: 677px;
+  &::before {
+    right: 38px;
+    width: 100px;
+    height: 37px;
+    background: #000;
+    border-top-right-radius: 100%;
+  }
+  &::after {
+    left: 38px;
+    width: 100px;
+    height: 37px;
+    background: #000;
+    border-top-left-radius: 100%;
+  }
+}
+
+```
+
+正好和身体下的部分叠在一起。
+
+![](https://pic1.zhimg.com/v2-a03b32594261c03f3e4b331b7c21ad09_r.jpg?source=1940ef5c)
+
+脸的轮廓
+----
+
+脸的轮廓是几圈彩色套在一起的。
+
+一圈好办，给个 border 就好了；三圈也好办，大不了用两个伪元素。更多圈怎么办呢？我们可以用 box-shadow。
+
+```
+.face {
+  width: 400px;
+  height: 320px;
+  border-top-left-radius: 50% 60%;
+  border-top-right-radius: 50% 60%;
+  border-bottom-left-radius: 41% 42%;
+  border-bottom-right-radius: 41% 42%;
+  box-shadow: 0 0 0 5px #006BB0, 0 0 0 10px #DC2F1F, 0 0 0 15px #1D1815, 0 0 0 20px #EFA90D, 0 0 0 25px #059341;
+}
+
+```
+
+![](https://pic1.zhimg.com/v2-04430c90f17a0e3ec1b5f224d1bd8d5b_r.jpg?source=1940ef5c)
+
+### 知识点 4 ：box-shadow 强大的复印机
+
+box-shadow 可以无限次声明同一个元素的阴影，并可以自定义偏移、扩展、颜色。  
+
+这就很有想象空间了，像一个复印机：
+
+*   调整扩展，可以无限增加元素的 border 层数，比如上面的用法。
+*   调整偏移，可以把元素形状复制到任意位置。
+*   关键是，任何一次复印都可以单独改变颜色！
+
+以前有个 CSSer 无聊，用 box-shadow 画了蒙娜丽莎：[https://codepen.io/jaysalvat/pen/kazzOj](https://link.zhihu.com/?target=https%3A//codepen.io/jaysalvat/pen/kazzOj)
+
+眼睛、鼻子、嘴
+-------
+
+一样思路，用 border-radius、transform、border 等前面提到的属性
+
+![](https://picx.zhimg.com/v2-5727e2bbbbe9f5dd682d8a14c50cf805_r.jpg?source=1940ef5c)
+
+瞳孔
+--
+
+这个本来也挺简单，对称两个带 border 的圆，但有一个小细节，就是瞳孔上水灵灵的眼光，是不对称的。
+
+那怎么办？div 自己居中定位不是闲着么，让他用 box-shadow 打出来就好了。
+
+```
+.eye-hole {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  box-shadow: -75px 19px #fff, 81px 19px #fff;
+}
+
+```
+
+完成
+--
+
+至此，冰墩墩就画完了。
+
+![](https://pica.zhimg.com/v2-788c833918263ee645ccc2ff673670cb_r.jpg?source=1940ef5c)
+
+快学去哄抢不到冰墩墩的小朋友吧～～
+
+附：完整代码 + 度熊，欢迎一起玩耍
+
+[](https://link.zhihu.com/?target=https%3A//github.com/HenryLulu/css-draw)

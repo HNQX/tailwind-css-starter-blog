@@ -7,7 +7,7 @@ summary: '分享十几个 CSS 开发者必须知道的有趣 CSS 效果代码'
 images: []
 ---
 
-{/* <TOCInline toc={props.toc} exclude="Introduction" /> */}
+<TOCInline toc={props.toc} exclude="Introduction" />
 
 
 一、实现线性渐变的文字
@@ -34,7 +34,7 @@ background:linear-gradient(direction, color-stop1, color-stop2, …)
 
 代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,7 +82,7 @@ color：可选参数，用于设置阴影的颜色。*/
 
 代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,7 +117,7 @@ color：可选参数，用于设置阴影的颜色。*/
 技术要点：在本实例中，为文字设置模糊发散的效果同样需要应用 CSS3 中的 text-shadow 属性，应用该属性为文字设置阴影，并且不设置阴影在水平方向和垂直方向的偏移值，同时需要设置文本的颜色为透明状态。  
 代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -152,7 +152,7 @@ color：可选参数，用于设置阴影的颜色。*/
 技术要点：在本实例中，实现文字的 3D 效果同样使用了 CSS3 中的 text-shadow 属性，通过该属性向文本添加多个阴影，多个阴影之间用逗号分隔。  
 代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -197,7 +197,7 @@ color：可选参数，用于设置阴影的颜色。*/
 
 代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -248,7 +248,7 @@ text-stroke-color：设置文字的描边颜色。*/
 
 代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -286,7 +286,7 @@ text-stroke-color：设置文字的描边颜色。*/
 技术要点：在本实例中，首先需要实现文字的镂空效果，然后通过设置元素的背景图像实现文字的图案填充效果。设置元素背景图像的属性是 background-image，该属性可以设置的可能值有三个，说明如下：url(‘URL’)：用来设置图像的 URL 路径。none：默认值，不显示背景图像。inherit：规定应该从父元素继承 background-image 属性的设置。  
 代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -325,7 +325,7 @@ text-stroke-color：设置文字的描边颜色。*/
 技术要点：在本实例中，实现以垂直方式从右向左显示文本主要应用了 CSS 中的 writing-mode 属性。该属性定义了文本在水平或垂直方向上如何排布。该属性主要有 3 个属性值，各个属性值的说明如下所示。horizontal-tb：默认值，表示水平方向从上到下的书写方式。vertical-rl：表示垂直方向从右向左的书写方式。vertical-lr：表示垂直方向从左向右的书写方式。  
 代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -378,7 +378,7 @@ transform:skew(x-angle,y-angle)
 
 代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -423,7 +423,7 @@ animation: name duration timing-function delay iteration-count direction;
 
 代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -466,7 +466,7 @@ animation: name duration timing-function delay iteration-count direction;
 技术要点：本实例主要使用了 CSS3 中的 linear-gradient() 函数实现文字颜色的线性渐变，并使用 animation 属性实现灯光照射的动态效果。  
 代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -522,7 +522,7 @@ animation: name duration timing-function delay iteration-count direction;
 技术要点：本实例主要使用了 CSS3 中的 text-shadow 属性为文字设置阴影，再应用 animation 属性为文字设置动画，最后应用 @keyframes 规则创建动画，实现文字发光的效果。  
 代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -585,7 +585,7 @@ animation: name duration timing-function delay iteration-count direction;
   
 2、技术要点：在本实例中，实现文字的旋转效果主要应用了 CSS3 中的 transform 属性，通过该属性可以向元素应用 2D 或 3D 转换。该属性允许对元素进行旋转、缩放、移动或倾斜。如果定义元素沿着 X 轴的 3D 旋转，需要将该属性值设置为 rotateX(angle)，如果定义元素沿着 Y 轴的 3D 旋转，需要将该属性值设置为 rotateY(angle)，如果定义元素沿着 Z 轴的 3D 旋转，需要将该属性值设置为 rotateZ(angle)，小括号中的 angle 表示旋转的角度。代码如下：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -635,7 +635,7 @@ animation: name duration timing-function delay iteration-count direction;
   
 2、技术要点：在本实例中，实现文字动态翻转的效果同样应用了 CSS3 中的 transform 属性，在该属性中，通过定义元素沿着 X 轴旋转的角度和沿着 Y 轴旋转的角度，并应用 animation 属性设置动画，从而实现文字的翻转特效。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -689,7 +689,7 @@ animation: name duration timing-function delay iteration-count direction;
   
 2、技术要点：在本实例中，实现文字的火焰效果主要使用了 CSS3 中的 text-shadow 属性和 animation 属性，通过 text-shadow 属性向文本添加多个阴影，通过 animation 属性设置动画。代码实现如下：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -764,7 +764,7 @@ animation: name duration timing-function delay iteration-count direction;
   
 2、技术要点：本实例主要使用了 CSS3 中的 animation 属性为文字设置动画，再应用 @keyframes 规则创建动画，在创建动画时应用 opacity 属性设置文字的透明度，根据透明度的变化实现文字闪烁的效果。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -820,7 +820,7 @@ transform:rotate(angle)
 
 代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -883,7 +883,7 @@ transform:translateY(y)
 
 代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -928,7 +928,7 @@ transform:translateY(y)
   
 2、技术要点：本实例主要使用了 CSS3 中的 text-shadow 属性为文字设置阴影，实现水波纹掠过文字时文字透明度改变的效果，再应用 animation 属性为文字设置动画，最后应用 @keyframes 规则创建动画，实现文字水波纹的动态效果。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1002,7 +1002,7 @@ transform:translateY(y)
   
 2、技术要点：本实例主要使用了 CSS3 中的 animation 属性为文字设置动画，再应用 @keyframes 规则创建动画。在应用 animation 属性为文字设置动画时，将 iteration-count 参数的值设置为 infinite，该值用来指定动画无限次播放。再将 direction 参数的值设置为 alternate，它表示动画在奇数次时正向播放，而在偶数次时反向播放，从而实现文字水平往复循环滚动的效果。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1049,7 +1049,7 @@ transform:translateY(y)
   
 2、技术要点：在 SVG 中定义文本使用的是标签。在该实例中，为了实现空心虚线线条文字的效果，需要对标签的 fill、stroke 和 stroke-dasharray 这几个属性进行设置。fill：为文字或图形填充颜色或图案。stroke：用于定义文本或元素的轮廓颜色。stroke-dasharray：用于创建虚线。该属性值是一个数列，既可以是普通数字也可以是百分比。数值之间可以用逗号或者空格分隔。当使用一个数值时，该数值表示一段虚线的长度和每段虚线之间的间距。当使用两个数值时，第一个数值表示虚线的长度，第二个数值表示虚线之间的间距。当使用奇数个数值时，则数列重复一次，从而变成偶数个数值。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1087,7 +1087,7 @@ transform:translateY(y)
   
 2、技术要点：在本实例中，错落显示文本中每个文字的效果需要设置标签的 y 属性，通过该属性设置文本中每个文字不同的垂直坐标，各个垂直坐标以逗号或空格进行分隔。每个垂直坐标对应一个文字，如果文字的数量多于垂直坐标的数量，则以最后一个垂直坐标作为剩余文字的垂直坐标。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1123,7 +1123,7 @@ transform:translateY(y)
   
 2、技术要点：在本实例中，实现文本中字间距不等的效果需要设置标签的 dx 属性，该属性可以设置每个字符相对于前一个字符的偏移距离。通过该属性可以设置文本中每个文字不同的字间距，各个字间距数值以逗号或空格进行分隔，每个数值相当于为每个文字设置的 margin-left 属性。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1158,7 +1158,7 @@ transform:translateY(y)
   
 2、技术要点：在本实例中，实现文本中部分文字放大加粗的效果应用了 SVG 中的标签，该标签需要定义在标签内部，也可以嵌套使用。所有标签的属性，标签也都可以使用。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1195,7 +1195,7 @@ transform:translateY(y)
   
 2、技术要点：在本实例中，实现文字线性渐变的效果应用了 SVG 中的标签。应用标签定义线性渐变可以设置 4 个属性：x1、x2、y1 和 y2。通过这 4 个属性可以定义水平、垂直或角形渐变。当 y1 和 y2 相等，而 x1 和 x2 不同时，可以创建水平渐变。当 x1 和 x2 相等，而 y1 和 y2 不同时，可以创建垂直渐变。当 x1 和 x2 不同，并且 y1 和 y2 不同时，可以创建角形渐变。渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个标签来规定。该标签中的 offset 属性用来定义渐变的开始和结束位置，stop-color 属性用来定义渐变的每种颜色。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1238,7 +1238,7 @@ transform:translateY(y)
   
 2、技术要点：在本实例中，实现文字颜色放射性渐变的效果应用了 SVG 中的标签。应用标签定义放射性渐变可以设置 5 个属性：cx、cy、r、fx 和 fy。其中，cx 和 cy 属性用于定义渐变的中心点，默认值为 50%，r 属性用于定义渐变的半径，默认值为 50%，fx 和 fy 属性用于定义渐变的焦点，默认值为 50%。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1277,7 +1277,7 @@ transform:translateY(y)
   
 2、技术要点：在本实例中，实现文字的瘦身和增肥效果应用了 SVG 中的 feMorphology 滤镜，该滤镜用于对源图形执行 fattening(增肥) 或者 thinning(瘦身) 的功能。该滤镜有一个 operator 属性，当设置该属性值为 erode 时，该滤镜产生的是瘦身的效果，当设置该属性值为 dilate 时，该滤镜产生的是增肥的效果。瘦身和增肥效果的数值是由 feMorphology 滤镜的 radius 属性值决定的。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1323,7 +1323,7 @@ transform:translateY(y)
   
 2、技术要点：在本实例中，实现文字的压扁效果需要设置标签中的 textLength 和 lengthAdjust 属性，textLength：用于设置文本的长度，通常和 lengthAdjust 属性搭配使用。lengthAdjust：用于设置对文本长度的调整。可选值为 spacing 和 spacingAndGlyphs。spacing 表示拉伸文字间距，使文本满足 textLength 的长度值；spacingAndGlyphs 表示拉伸文字，直到文本满足 textLength 的长度值为止。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1358,7 +1358,7 @@ transform:translateY(y)
   
 2、技术要点：在本实例中，实现文字的旋转效果需要设置标签中的 rotate 属性，通过该属性可以设置文本中每个文字的旋转角度，各个旋转角度以逗号或空格进行分隔。每个旋转角度对应一个文字，如果文字的数量多于旋转角度的数量，则以最后一个旋转角度作为剩余文字的旋转角度。。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1394,7 +1394,7 @@ transform:translateY(y)
   
 2、技术要点：在本实例中，实现文本围绕指定中心点旋转的动画效果需要在标签中嵌入标签，根据该标签指定的属性值使标签中的文本进行旋转。在标签中，type 属性用于定义动画类型，设置为 rotate 表示旋转动画，from 属性用于定义旋转的起始角度和旋转时围绕的中心点坐标，to 属性用于定义旋转的结束角度和旋转时围绕的中心点坐标。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1429,7 +1429,7 @@ transform:translateY(y)
   
 2、技术要点：在本实例中，实现文字的模糊效果使用的是 SVG 中的 feGaussianBlur 滤镜。在标签中应用标签，并设置该标签的 stdDeviation 属性，该属性用来定义模糊的程度，其值越大，模糊范围就越大。示例代码如下：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1469,7 +1469,7 @@ transform:translateY(y)
   
 2、技术要点：在本实例中，为了实现文字的圆弧显示效果，需要定义一个圆弧的路径。定义一个路径使用的是 SVG 中的标签，该标签的 d 属性用于定义路径的命令，根据不同的命令可以定义不同的路径。定义一个圆弧的路径需要使用的路径命令是 M(moveto) 和 A(elliptical Arc)。M 命令用于设置路径的开始点坐标，A 命令用于设置圆弧的半长轴长度、半短轴长度、圆弧的方向以及终点坐标等参数。定义路径后，应用标签的 xlink:href 属性引用该路径，实现文本沿指定路径显示的效果。代码实现如下：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1509,7 +1509,7 @@ transform:translateY(y)
   
 2、技术要点：在本实例中，为了实现文字沿曲线显示的效果，需要应用 SVG 中的标签定义一个三次贝塞尔曲线的路径。在该标签的 d 属性中设置三次贝塞尔曲线的开始点、控制点和结束点。其中使用的路径命令有 M(moveto)、C(curveto) 和 S(smooth curveto)。M 命令用于设置路径的开始点坐标，C 命令用于设置三次贝塞尔曲线的控制点和结束点坐标，S 命令用于设置平滑的贝塞尔曲线的控制点坐标。代码实现如下：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1554,7 +1554,7 @@ transform:translateY(y)
   
 2、技术要点：本实例主要是通过窗体的 onLoad 事件调用 JavaScript 自定义函数来实现的，在该自定义函数中关键是修改当前页的 fgColor 属性来修改页面的前景颜色，并用 Window 对象的 setInterval() 方法以指定的时间调用 JavaScript 自定义函数 changecolor()。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1590,7 +1590,7 @@ transform:translateY(y)
   
 2、技术要点：本实例主要是通过层的 innerHTML 属性将指定的文本动态添加到层中，并用 window 对象的 setTimeout() 方法以指定时间调用自定义函数 letter() 来更换文本及其字体颜色。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1638,7 +1638,7 @@ letter();
   
 2、技术要点：本实例主要是通过 substring() 方法来获取指定文本中的单个文字，并将其设置成不同的颜色，再用 innerHTML 属性将文字动态显示在层中。用 setTimeout() 方法循环调用自定义函数 Dcolor()，使文字看上去具有霓虹灯效果。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1680,7 +1680,7 @@ Dcolor();
   
 2、技术要点：本实例主要是通过 substring() 方法逐个对文字的颜色进行改变，并用 innerHTML 属性将修改后的文字显示在浏览器中，再用 setTimeout() 方法循环调用自定义函数 gogo()，使文字看上去具有逐个变色的效果。代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1731,7 +1731,7 @@ Math.sin(number)
 
 代码实现：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1785,7 +1785,7 @@ parseInt(numString, [radix])
 
 代码实现：
 
-```
+```html
 <!DOCTYPE>
 <html lang="en">
 <head>
@@ -1833,7 +1833,7 @@ Fade();
   
 2、技术要点：本实例主要用 split() 方法将一个字符串分割为子字符串，然后再用 Math 对象的 sin() 和 cos() 方法将字符串中的文字在页面中画一个半圆，使其动态旋转。代码实现：
 
-```
+```html
 <!DOCTYPE>
 <html lang="en">
 <head>
@@ -1939,7 +1939,7 @@ sport();
   
 2、技术要点：本实例主要是将列表框中最上面的对象进行清空，使下一行移动到最上面，并利用列表框的 selectedIndex 属性将最上面的对象设为选中状态，并利用 window 对象的 setTimeout() 方法对自定义函数 screenscroll() 进行调用，以达到滚动的效果。代码实现：
 
-```
+```html
 <!DOCTYPE>
 <html lang="en">
 <head>
@@ -2076,7 +2076,7 @@ function screenscroll(){
   
 2、技术要点：本实例主要是将字符串中的每个汉字用层来进行显示，并将层的 id 用数字从小到大进行排列，并自定义一个数组（sumstr），用于改变字符串指定个数的高度。用 setTimeout() 方法调用自定义函数 dmove() 时，将字符串的位置向后移动一个汉字，当移动到最后一个文字时，将位置移动到第一个汉字，使其出现动态的抖动效果。其关键主要是通过 document.all(“aa”+(n+i2)) 来获取要移动的层，n 表示移动层的起始位置，i2 表示要移动层的个数的一个动态变量，并通过层的 style 样式的 top 属性来设置层在 x 轴上的位置。代码实现：
 
-```
+```html
 <!DOCTYPE>
 <html lang="en">
 <head>
@@ -2140,7 +2140,7 @@ dmove();
   
 2、技术要点：本实例主要是通过层的 style 样式的 visibility 属性的 visible 和 hidden 值来动态设置层的显示和隐藏状态，并通过 window 对象的 event 对象的 x 和 y 属性来获取鼠标的当前位置。如果要使层在指定的位置显示，必须将层的 style 样式的 position 属性设为 absolute，使层为可移动状态，并通过对层的 style 样式的 fontSize 属性值进行递增修改，使层不断的变大。本实例是通过 setTimeout() 方法按指定的时间调用 divsize() 函数来改变层的大小，当动画结束时应用 window 对象的 clearTimeout() 方法将 setTimeout() 方法消除。代码实现：
 
-```
+```html
 <!DOCTYPE>
 <html lang="en">
 <head>
@@ -2202,7 +2202,7 @@ function divsize(){
 
 ），再用 Math 对象的 random() 方法来随机设置层的字体大小（使雪花大小不同），通过 window 对象的 setTimeout() 方法不断的修改层的 style 样式的 top 和 left 属性，使层在页面中不断的移动，形成下雪的效果。注意：如果要使层在页面中移动，必须将层的 style 样式的 position 属性值设为 absolute。代码实现：
 
-```
+```html
 <!DOCTYPE>
 <html lang="en">
 <head>
@@ -2267,7 +2267,7 @@ moverain();
 
 ），再用 window 对象的 setTimeout() 方法不断的修改层的 style 样式的 top 和 left 属性，使层在页面中不断的移动，形成下雨的效果。代码实现：
 
-```
+```html
 <!DOCTYPE>
 <html lang="en">
 <head>
@@ -2365,7 +2365,7 @@ relative：对象不可层叠，但将依据left、right、top、bottom等属性
 
 代码实现：
 
-```
+```html
 <!DOCTYPE>
 <html lang="en">
 <head>
@@ -2454,7 +2454,7 @@ fly();
   
 2、技术要点：本实例主要是用层的 style 样式的 left 属性来设定层的左端位置，并用 style 样式的 top 属性来随机设定层的顶端位置。document 对象的 body 的 clientHeight 属性用来获取对象的高度，不计算任何边距、边框、滚动条或可能应用到该对象的补白。Math 对象的 random() 方法用来获取 0～1（包含 0，不包含 1）之间的随机数。代码实现：
 
-```
+```html
 <!DOCTYPE>
 <html lang="en">
 <head>
@@ -2504,7 +2504,7 @@ fly();
 
 2、技术要点：本实例主要通过 body 对象的 style 样式中的 backgroundImage、backgroundPosition、backgroundRepeat 和 backgroundAttachment 属性在页面中添加背景图片，并对图片进行居中显示。代码实现：
 
-```
+```html
 <!DOCTYPE>
 <html lang="en">
 <head>
@@ -2530,447 +2530,3 @@ document.body.style.backgroundAttachment="fixed";
 </html>
 
 ```
-
-写在最后的话
-------
-
-大家看完有什么不懂的可以在下方留言讨论，也可以私信问我一般看到后我都会回复的。最后觉得文章对你有帮助的话记得点个赞哦，点点关注不迷路
-
-[@终端研发部](https://www.zhihu.com/people/0562ae57ba411b146099313075609e94)
-
-每天都有新鲜的干货分享！
-
-参考
-
-作者：Amo Xiang  
-连接：[https://blog.csdn.net/xw1680/article/details/118065460](https://link.zhihu.com/?target=https%3A//blog.csdn.net/xw1680/article/details/118065460)
-
-![](https://pic1.zhimg.com/v2-2dee26e180b8365a3a2c2a91943b15fa_l.jpg?source=1940ef5c)逝者如斯
-
-
-先不说 3d 效果，就论一个平面上的话，
-
-只用一行 div，无 js，就可以画一幅世界名画蒙娜丽莎，CSS 博大精深→ _→
-
-[Mona Lisa with pure CSS](https://link.zhihu.com/?target=http%3A//codepen.io/jaysalvat/pen/HaqBf)  
-![](https://picx.zhimg.com/93b628b8cddf83652deef756fe92c8d4_r.jpg?source=1940ef5c)  
-
-虽然作者不是手写的，但至少另一个角度说明 css 可以做到这样的效果，画画不只有 canvas，svg 等。。。
-
-下面有小伙伴提到了刚出来时很火的 “纯 CSS 技术画出 30 个濒危动物图片”，这里一并列出并给出网址，
-
-“30 个物种，30 中碎片拼图。” 点开这场展览的网站主页，空灵的背景音乐引入了颜色饱满的多边形图案，配合着 30 种濒危动物的文字介绍。而之所以叫 “30 片三角”，是因为 James 起初在摆弄编程的时候，第一幅成型的作品 “夏威夷乌鸦”，刚刚好是 30 片三角形拼接而成。
-
-但这次展览拼的不是技术或着艺术。伴随 30 只生命样貌的切换，一幅幅几何状组合的破碎，设计师试图展现过去 10 年来栖息地遭受破坏是如何把动物推向灭绝的边缘——曾是 2014 年巴西世界杯吉祥物的三带犰狳（ Three-Banded Armadillo of Brazil）数量减少了 30%，新几内亚岛上的原针鼹鼠（ Long-Beaked Echidna ）因人类的狩猎而在过去 35-40 年间减少近 80%。
-
-**官方网址：**
-
-[30 个 CSS 碎片拼图，30 种濒临灭绝动物](https://link.zhihu.com/?target=http%3A//www.webhek.com/misc-res/species-in-pieces/%23)
-
-(官网需要 fanqiang 查看)
-
-无论是背景音的选用，还是动物样貌之间的切换，抑或是细节处的动效展现，再加上主题的升华，有技术有内涵，这是一部成功的作品。
-
-![](https://picx.zhimg.com/b80d46ba4d80f53216266ddd9af906cd_r.jpg?source=1940ef5c)  
-
-可以闲来无事画画小动物：
-
-![](https://pica.zhimg.com/189d9eecd5e6bda2a2d5d163c992de7e_r.jpg?source=1940ef5c)  
-
-打打灰机：
-
-[Airplane (Pure CSS)](https://link.zhihu.com/?target=http%3A//codepen.io/dogagenc/pen/xbRKZx)![](https://pic1.zhimg.com/f693aa75c0df34cf963cb89fbbd315d0_r.jpg?source=1940ef5c)  
-[CSS Faces](https://link.zhihu.com/?target=http%3A//codepen.io/rachel_web/pen/doaPWN)  
-![](https://picx.zhimg.com/a3ee0138dac2feb2327bea44fc0a7d7f_r.jpg?source=1940ef5c)  
-
-这些都是静止的，想想再加上各种动画，也可以做出很多效果出来的。
-
-CSS3D 苹果笔记本动画：
-
-这又是一款超酷的 CSS3 3D 动画效果，它是一款带有 3D 视觉效果，并且可以 360 度旋转的 macbook air。这款 CSS3 3D 动画的笔记本底部有一个逼真的投影，可以跟随图片一起转动，从而凸显其 3D 效果，是一款很不错的 CSS3 3D 动画特效
-
-[CSS3 3D 苹果笔记本动画 DEMO 演示](https://link.zhihu.com/?target=http%3A//www.html5tricks.com/demo/css3-3d-macbook-air/index.html)  
-![](https://picx.zhimg.com/50/a51c0cd2731b33ef479573abbcc7e67a_720w.jpg?source=1940ef5c)  
-[CSS3 扇形动画菜单 DEMO 演示](https://link.zhihu.com/?target=http%3A//www.html5tricks.com/demo/css3-sector-menu/index.html)  
-![](https://picx.zhimg.com/50/915aca553597e8e589589e22a05d0373_720w.jpg?source=1940ef5c)  
-
-
-我们知道 js 在 web 方面能做很多事
-
-有一句话说：_**限制你的可选项，会让你重新评估手头上已有的工具。**_
-
-如果只让你用 css，能完成某项任务吗？而这个任务中，只用一个 div，全靠 css 属性来实现效果，可以吗？
-
-可以看看翻译的一篇
-
-**_[基于单个 Div 的 CSS 绘图 - 前端外刊评论 - 知乎专栏](http://zhuanlan.zhihu.com/FrontendMagazine/19854868)：_**
-
-“为了得到更大的挑战，探索 CSS 的潜力，我给自己定了这个限制，只是用一个 Div。不能直接买一只绿色的笔（添加更多的 Div），我要做的就是尽其所能地结合 CSS 属性来实现我的目的。”
-
-以下这些都是基于一个 div 所做的：
-
-[A Single Div](https://link.zhihu.com/?target=http%3A//a.singlediv.com/)![](https://pic1.zhimg.com/1db5952700594b2efe54cafc6516e4ce_r.jpg?source=1940ef5c)  
-
-
-做一个动态的旋转木马给妹纸，立马少女心泛滥有木有 (星星眼)：
-
-[Horse ride carousel flat design by Lina for Zajno (3D animated with CSS3)](https://link.zhihu.com/?target=http%3A//codepen.io/gxash/pen/rLLyvq)![](https://pic1.zhimg.com/15921878862b63fc874d74a3485a46b8_r.jpg?source=1940ef5c)  
-
-css 可以用来做图像，做完图像还可以用 css 添加动画，能做成什么样还要看你的想象力了。再加上合适的主题，就能做出一件成功的作品。
-
-还有动态的车子：
-
-[Bike Season](https://link.zhihu.com/?target=http%3A//codepen.io/jonsuh/pen/qNOxLK)![](https://picx.zhimg.com/a92369634f14262e66445d3a5d674d82_r.jpg?source=1940ef5c)  
-
-上面两个例子来自 can you code this ui
-
-[https://stories.uplabs.com/can-you-code-this-ui-4530315290a1#.65da2m9rs](https://link.zhihu.com/?target=https%3A//stories.uplabs.com/can-you-code-this-ui-4530315290a1%23.65da2m9rs)  
-
-css 可以用来做图像，做完图像还可以用 css 添加动画，能做成什么样还要看你的想象力了。再加上合适的主题，就能做出一件成功的作品。
-
-![](https://pic1.zhimg.com/v2-7b157ace53f108d892c7a0cc97fb9dfd_l.jpg?source=1940ef5c)几木​​ 冰墩墩（英文：Bing Dwen Dwen，汉语拼音：bīng dūn dūn），是 [2022 年北京冬季奥运会](https://link.zhihu.com/?target=https%3A//baike.baidu.com/item/2022%25E5%25B9%25B4%25E5%258C%2597%25E4%25BA%25AC%25E5%2586%25AC%25E5%25AD%25A3%25E5%25A5%25A5%25E8%25BF%2590%25E4%25BC%259A/12061628) 的吉祥物。 [3] 将熊猫形象与富有超能量的冰晶外壳相结合，头部外壳造型取自冰雪运动头盔，装饰彩色光环，整体形象酷似航天员。
-
-以前面试总被问，如何用 CSS 画一个三角形。今天我想玩点大的，用 CSS 画个冰墩墩！
-
-1 基础结构
-------
-
-结构划分
-----
-
-首先看下官方这张图。
-
-![](https://pic1.zhimg.com/v2-4a12626fed45c7d86a7b9e90abebfce7_r.jpg?source=1940ef5c)
-
-我们可以把各个部分拆成 div，再给 div 分别做 CSS，最终拼成整幅图。
-
-```
-<div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-</div>
-
-```
-
-对这个分法你可能有很多问号，比如：
-
-*   一个 div 能画出这么复杂的东西？
-*   为什么两只眼睛分一个 div ？为什么瞳孔反而要单独分？
-
-后面的操作会给你答案。
-
-绝对定位和图层
--------
-
-然后我们给所有 div 一个绝对定位：
-
-```
-.bingdundun-container {
-  position: relative;
-  div {
-    position: absolute;
-  }
-}
-
-```
-
-这样就像 sketch、ps 一样，我们有了很多图层。绝对定位下，图层是有上下顺序的，这也是前面划分结构的一个依据。
-
-但 CSS 的能力不止于此，通过伪元素，一个 div 理论上可以提供三个图层：自身、before、after。我们给他们也统一加上。
-
-```
-.bingdundun-container {
-  div {
-    &:before,
-    &:after {
-        position: absolute;
-        content: '';
-    }
-  }
-}
-
-```
-
-2 动手
-----
-
-接下来我们要挨个部分画图了，其中夹杂引入属性的简单说明，一口饭一口菜。
-
-身体
---
-
-冰墩墩的身体是一个类似蛋的形状，头顶要比脚下圆润些，这个好做，一组 border + radius 搞定。
-
-```
-.bingdundun-container {
-  width: 488px;
-  height: 557px;
-  left: 255px;
-  top: 158px;
-  border: 10px solid #000;
-  background: #fff;
-  border-top-left-radius: 240px;
-  border-top-right-radius: 240px;
-  border-bottom-left-radius: 194px 253px;
-  border-bottom-right-radius: 194px 253px;
-}
-
-```
-
-得到一个蛋
-
-![](https://picx.zhimg.com/v2-387a0c3c7329fc21d6744f8dbb480611_r.jpg?source=1940ef5c)
-
-### 知识点 1：border-radius 让方盒子圆起来
-
-border-radius 可以用来实现不规则椭圆。  
-四个角的 radius 可以单独设置，每个 radius 又可以单独设置两个方向的。  
-
-耳朵
---
-
-耳朵也差不多，两个蛋，放在一个 div 里，因为我们前面说过，一个 div 至多可以提供三个图层
-
-```
-.ear {
-  &::before, &::after {
-    width: 98px;
-    height: 125px;
-    background: #000;
-    border-radius: 50%;
-  }
-  &::after {
-    left: 596px;
-  }
-}
-
-```
-
-因为 div 顺序靠前，下半部分正好被身体压掉。
-
-![](https://pic1.zhimg.com/v2-2ca3c5d06409e8eee65188bffc0d3cbb_r.jpg?source=1940ef5c)
-
-左手
---
-
-左手类似一个水滴的形状，看似可以尝试比较大的 border radius，但实际行不通，可以用一个圆形 + 一个三角形拼起来。其中三角形用 border 实现。
-
-```
-.hand-left {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: #000;
-  &::before {
-    width: 0;
-    height: 0;
-    border: 50px solid;
-    border-color: transparent #000 #000 transparent;
-  }
-}
-
-```
-
-![](https://picx.zhimg.com/v2-59e40752266e7d36dab2669fffd36c3c_r.jpg?source=1940ef5c)
-
-### 知识点 2 ：巧用 border 画三角形
-
-元素四个方向的 border 是沿 content box、border box 角的连线分割的，可以画出三角形、梯形。  
-
-右手
---
-
-右手是一个椭圆 + 一颗心（拆成两个椭圆拼起来），三个图层正好够用。又引入了 transform rotate 属性。
-
-```
-.hand-right {
-  width: 89px;
-  height: 176px;
-  background: #000;
-  transform: rotate(30deg);
-  border-bottom-right-radius: 89px;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 49px;
-  &::before {
-    width: 16px;
-    height: 30px;
-    transform: rotate(19deg);
-    background: red;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-bottom-left-radius: 16px;
-  }
-  &::after {
-    width: 16px;
-    height: 30px;
-    transform: rotate(-71deg);
-    background: red;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 16px;
-  }
-}
-
-```
-
-![](https://picx.zhimg.com/v2-0ee784aaa546168ab5ac7c8475d7b071_r.jpg?source=1940ef5c)
-
-### 知识点 3 ：transform 改变元素形状
-
-transform 可以改变元素的形状，比如 rotate 来旋转角度。  
-除了 rotate，skew 也常用来实现菱形等。  
-
-脚
--
-
-这个脚看起来有点难办，虽然是圆角类似椭圆，但几个方向比较刁钻。这里果断拆分成两部分，一部分堆在身体下，一部分堆在身体上。稍微调整下 html。
-
-```
-<div></div>
-<div></div>
-<div></div>
-
-```
-
-**身体下部分**
-
-```
-.foot-bottom {
-  left: 500px;
-  top: 677px;
-  &::before {
-    right: 36px;
-    width: 115px;
-    height: 116px;
-    background: #000;
-    border-top-left-radius: 9px 90px;
-    border-top-right-radius: 9px 83px;
-    border-bottom-left-radius: 35px;
-    border-bottom-right-radius: 14px;
-  }
-  &::after {
-    left: 36px;
-    width: 115px;
-    height: 116px;
-    background: #000;
-    border-top-right-radius: 9px 90px;
-    border-top-left-radius: 9px 83px;
-    border-bottom-right-radius: 35px;
-    border-bottom-left-radius: 14px;
-  }
-}
-
-```
-
-发现没，两只脚对称，这里的元素本身定到中间，本身没什么意义，但两伪元素就可以对称写了，非常方便。
-
-![](https://pic1.zhimg.com/v2-af0bdbb37247daee231be254679d8e10_r.jpg?source=1940ef5c)
-
-**身体上部分**
-
-一样对称画。
-
-```
-.foot-top {
-  left: 500px;
-  top: 677px;
-  &::before {
-    right: 38px;
-    width: 100px;
-    height: 37px;
-    background: #000;
-    border-top-right-radius: 100%;
-  }
-  &::after {
-    left: 38px;
-    width: 100px;
-    height: 37px;
-    background: #000;
-    border-top-left-radius: 100%;
-  }
-}
-
-```
-
-正好和身体下的部分叠在一起。
-
-![](https://pic1.zhimg.com/v2-a03b32594261c03f3e4b331b7c21ad09_r.jpg?source=1940ef5c)
-
-脸的轮廓
-----
-
-脸的轮廓是几圈彩色套在一起的。
-
-一圈好办，给个 border 就好了；三圈也好办，大不了用两个伪元素。更多圈怎么办呢？我们可以用 box-shadow。
-
-```
-.face {
-  width: 400px;
-  height: 320px;
-  border-top-left-radius: 50% 60%;
-  border-top-right-radius: 50% 60%;
-  border-bottom-left-radius: 41% 42%;
-  border-bottom-right-radius: 41% 42%;
-  box-shadow: 0 0 0 5px #006BB0, 0 0 0 10px #DC2F1F, 0 0 0 15px #1D1815, 0 0 0 20px #EFA90D, 0 0 0 25px #059341;
-}
-
-```
-
-![](https://pic1.zhimg.com/v2-04430c90f17a0e3ec1b5f224d1bd8d5b_r.jpg?source=1940ef5c)
-
-### 知识点 4 ：box-shadow 强大的复印机
-
-box-shadow 可以无限次声明同一个元素的阴影，并可以自定义偏移、扩展、颜色。  
-
-这就很有想象空间了，像一个复印机：
-
-*   调整扩展，可以无限增加元素的 border 层数，比如上面的用法。
-*   调整偏移，可以把元素形状复制到任意位置。
-*   关键是，任何一次复印都可以单独改变颜色！
-
-以前有个 CSSer 无聊，用 box-shadow 画了蒙娜丽莎：[https://codepen.io/jaysalvat/pen/kazzOj](https://link.zhihu.com/?target=https%3A//codepen.io/jaysalvat/pen/kazzOj)
-
-眼睛、鼻子、嘴
--------
-
-一样思路，用 border-radius、transform、border 等前面提到的属性
-
-![](https://picx.zhimg.com/v2-5727e2bbbbe9f5dd682d8a14c50cf805_r.jpg?source=1940ef5c)
-
-瞳孔
---
-
-这个本来也挺简单，对称两个带 border 的圆，但有一个小细节，就是瞳孔上水灵灵的眼光，是不对称的。
-
-那怎么办？div 自己居中定位不是闲着么，让他用 box-shadow 打出来就好了。
-
-```
-.eye-hole {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  box-shadow: -75px 19px #fff, 81px 19px #fff;
-}
-
-```
-
-完成
---
-
-至此，冰墩墩就画完了。
-
-![](https://pica.zhimg.com/v2-788c833918263ee645ccc2ff673670cb_r.jpg?source=1940ef5c)
-
-快学去哄抢不到冰墩墩的小朋友吧～～
-
-附：完整代码 + 度熊，欢迎一起玩耍
-
-[](https://link.zhihu.com/?target=https%3A//github.com/HenryLulu/css-draw)
