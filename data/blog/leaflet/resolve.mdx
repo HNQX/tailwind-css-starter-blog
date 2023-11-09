@@ -1,0 +1,38 @@
+---
+title: 'Leaflet的使用'
+date: '2023-11-09'
+tags: ['leaflet','map']
+draft: false
+summary: '使用leaflet进行开发时或许会遇到的问题'
+images: []
+---
+
+
+## 引入问题
+使用vue等前端框架集成leaflet时，或许会遇到L.marker实例化出的图钉图片缺失，那么可以使用以下解决方法
+
+
+如果是vue2 webpack  
+
+```javascript
+delete L.Icon.Default.prototype._getIconUrl
+L.Icon.Default.imagePath = ''
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+    iconUrl: require('leaflet/dist/images/marker-icon.png'),
+    shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+})
+```
+如果是vue3 vite等，由于require无法使用，那么就需要这样做  
+
+```javascript
+delete L.Icon.Default.prototype._getIconUrl
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: new URL("leaflet/dist/images/marker-icon-2x.png", import.meta.url).href,
+    iconUrl: new URL("leaflet/dist/images/marker-icon.png", import.meta.url).href,
+    shadowUrl: new URL("leaflet/dist/images/marker-shadow.png", import.meta.url).href,
+})
+```
+
+
+## 待定
