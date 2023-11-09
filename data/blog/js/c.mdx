@@ -1,0 +1,305 @@
+---
+title: '使用js技巧'
+date: '2023-11-03'
+tags: ['js','web']
+draft: false
+summary: 'JAVASCRIPT小技巧'
+images: []
+---
+
+**01、[去抖函数](https://www.zhihu.com/search?q=%E5%8E%BB%E6%8A%96%E5%87%BD%E6%95%B0&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A3280879891%7D)以限制它被调用的次数.**
+
+```js
+function debounce(func, delay) {
+  let timer;
+  return function() {
+    clearTimeout(timer);
+    timer = setTimeout(func, delay);
+  };
+}
+
+```
+
+**02、[节流函数](https://www.zhihu.com/search?q=%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A3280879891%7D)以限制调用它的速率**：
+
+```js
+function throttle(func, limit) {
+  let throttled = false;
+  return function() {
+    if (!throttled) {
+      func();
+      throttled = true;
+      setTimeout(function() {
+        throttled = false;
+      }, limit);
+    }
+  };
+}
+
+```
+
+**03、检查变量是否为数组：**
+
+```js
+function isArray(variable) {
+  return Array.isArray(variable);
+}
+
+```
+
+**04、[展平嵌套数组](https://www.zhihu.com/search?q=%E5%B1%95%E5%B9%B3%E5%B5%8C%E5%A5%97%E6%95%B0%E7%BB%84&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A3280879891%7D)的数组：**
+
+```js
+function flattenArray(array) {
+  return array.flat();
+}
+
+```
+
+**05、生成介于[最小值](https://www.zhihu.com/search?q=%E6%9C%80%E5%B0%8F%E5%80%BC&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A3280879891%7D)和最大值之间的随机数：**
+
+```js
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+```
+
+**06、检查字符串是否为回文：**
+
+```js
+function isPalindrome(str) {
+  const reversed = str.split('').reverse().join('');
+  return str === reversed;
+}
+
+```
+
+**07、将字符串的第一个字母大写：**
+
+```js
+function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+```
+
+**08、检查数字是否为偶数：**
+
+```js
+function isEven(number) {
+  return number % 2 === 0;
+}
+
+```
+
+**09、检查一个数是否为[质数](https://www.zhihu.com/search?q=%E8%B4%A8%E6%95%B0&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A3280879891%7D)：**
+
+```js
+function isPrime(number) {
+  if (number <= 1) {
+    return false;
+  }
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+```
+
+**10、从字符串的开头和结尾修剪空格：**
+
+```js
+function trimWhitespace(str) {
+  return str.trim();
+}
+
+```
+
+**11、检查对象是否为空：**
+
+```js
+function isEmptyObject(obj) {
+  return Object.keys(obj).length === 0;
+}
+
+```
+
+**12、反转字符串：**
+
+```js
+function reverseString(str) {
+  return str.split('').reverse().join('');
+}
+
+```
+
+**13、检查值是否为数字：**
+
+```js
+function isNumber(value) {
+  return typeof value === 'number' && !isNaN(value);
+}
+
+```
+
+**14、[洗牌数组](https://www.zhihu.com/search?q=%E6%B4%97%E7%89%8C%E6%95%B0%E7%BB%84&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A3280879891%7D)：**
+
+```js
+function shuffleArray(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+```
+
+**15、从数组中删除重复项：**
+
+```js
+function removeDuplicates(array) {
+  return [...new Set(array)];
+}
+
+```
+
+**16、获取当前日期和时间：**
+
+```js
+function getCurrentDateTime() {
+  return new Date();
+}
+
+```
+
+**17、检查字符串是否以特定子字符串开头：**
+
+```js
+function startsWith(str, substring) {
+  return str.startsWith(substring);
+}
+
+```
+
+**18、将字符串转换为小写：**
+
+```js
+function toLowerCase(str) {
+  return str.toLowerCase();
+}
+
+```
+
+**19、检查一个值是否是一个对象：**
+
+```js
+function isObject(value) {
+  return typeof value === 'object' && value !== null;
+}
+
+```
+
+**20、检查字符串是否包含特定子字符串：**
+
+```js
+function containsSubstring(str, substring) {
+  return str.includes(substring);
+}
+
+```
+
+**21、生成指定长度的随机字母数字字符串：**
+
+```js
+function generateRandomAlphanumeric(length) {
+  let result = '';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
+
+```
+
+**22、检查数组中是否存在元素：**
+
+```js
+function isInArray(array, element) {
+  return array.includes(element);
+}
+
+```
+
+**23、反转字符串中单词的顺序：**
+
+```js
+function reverseWords(str) {
+  return str.split(' ').reverse().join(' ');
+}
+
+```
+
+**24、检查字符串是否以特定子字符串结尾：**
+
+```js
+function endsWith(str, substring) {
+  return str.endsWith(substring);
+}
+
+```
+
+**25、检查一个值是否是一个函数：**
+
+```js
+function isFunction(value) {
+  return typeof value === 'function';
+}
+
+```
+
+**26、查找数组中的最大值：**
+
+```js
+function findMaxValue(array) {
+  return Math.max(...array);
+}
+
+```
+
+**27、查找数组中的最小值：**
+
+```js
+function findMinValue(array) {
+  return Math.min(...array);
+}
+
+```
+
+**28、将字符串转换为[字符数组](https://www.zhihu.com/search?q=%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A3280879891%7D)：**
+
+```js
+function stringToArray(str) {
+  return Array.from(str);
+}
+
+```
+
+**29、检查字符串是否为空或仅由空格组成：**
+
+```js
+function isStringEmpty(str) {
+  return str.trim().length === 0;
+}
+
+```
+
+**30、检查值是否为布尔值：**
+
+```js
+function isBoolean(value) {
+  return typeof value === 'boolean';
+}
+
+```
