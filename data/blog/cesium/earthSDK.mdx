@@ -1,0 +1,164 @@
+---
+title: Vite引入EarthSDK
+date: '2023-11-28'
+tags: ['cesium','map','earthSDK']
+draft: false
+summary: vue3下vite引入EarthSDK环境
+images: []
+---
+
+## 首先创建一个插件配置文件
+
+```javascript:vite/plugins/earth_evo.js
+import fs from "fs-extra";
+export default function vitePluginEarthsdk() {
+    let outDir = "dist";
+    let base = "./";
+    return {
+        name: "vitePluginEarthsdk",
+        async config(config, { command }) {
+            if (!config.base) {
+                config.base = base
+            }
+            if (command == "serve") {
+                //develop引入earth包
+                try {
+                    await fs.copy("node_modules/earthsdk/dist/XbsjCesium", "public/XbsjCesium");
+                    await fs.copy("node_modules/earthsdk/dist/XbsjEarth", "public/XbsjEarth");
+                } catch (err) {
+                    console.error("copy failed", err);
+                }
+            } else {
+                outDir = config.build.outDir;
+            }
+        },
+        async closeBundle() {
+            //product引入earth包
+            try {
+                await fs.copy("node_modules/earthsdk/dist/XbsjCesium", outDir + "/XbsjCesium");
+                await fs.copy("node_modules/earthsdk/dist/XbsjEarth", outDir + "/XbsjEarth");
+            } catch (err) {
+                console.error("copy failed", err);
+            }
+        },
+        transformIndexHtml() {
+            //index.html script引入
+            return [
+                {
+                    tag: "script",
+                    attrs: {
+                        src: "XbsjEarth/XbsjEarth.js",
+                    },
+                    injectTo: "head-prepend",
+                },
+            ];
+        },
+    };
+}
+```
+
+## 在插件创建文件中引入earth插件模块
+```javascript:vite/plugins/index.js
+import vue from '@vitejs/plugin-vue'
+
+import createAutoImport from './auto-import'
+import createSvgIcon from './svg-icon'
+import createCompression from './compression'
+import createSetupExtend from './setup-extend'
+import vitePluginEarthsdk from './earth_evo' //引入earth插件模块
+export default function createVitePlugins(viteEnv, isBuild = false) {
+    const vitePlugins = [vue()]
+    vitePlugins.push(createAutoImport())
+	vitePlugins.push(createSetupExtend())
+    vitePlugins.push(createSvgIcon(isBuild))
+    vitePlugins.push(vitePluginEarthsdk(viteEnv))
+	isBuild && vitePlugins.push(...createCompression(viteEnv))
+    return vitePlugins
+}
+
+```
+
+
+## 最后在vite.config.js中引入创建插件即可
+```javascript:vite.config.js
+import { defineConfig, loadEnv } from 'vite'
+import path from 'path'
+import createVitePlugins from './vite/plugins'
+
+export default defineConfig(({ mode, command }) => {
+const env = loadEnv(mode, process.cwd())
+console.log("===============log==========>", env)
+return {
+    base: env.VITE_APP_BASE_PATH || '',
+    plugins: createVitePlugins(env, false),
+    transpileDependencies: true,
+    resolve: {
+        // https://cn.vitejs.dev/config/#resolve-alias
+        alias: {
+        // 设置路径
+        '~': path.resolve(__dirname, './'),
+        // 设置别名
+        '@': path.resolve(__dirname, './src')
+        },
+        // https://cn.vitejs.dev/config/#resolve-extensions
+        extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue']
+    },
+    // vite 相关配置
+    server: {
+        port: env.VITE_port,
+        host: true,
+        open: true,
+        proxy: {
+            // https://cn.vitejs.dev/config/#server-proxy
+            [env.VITE_APP_BASE_API]: {
+                target: 'http://192.168.11.12:' + env.VITE_server_port,
+                changeOrigin: true,
+            }
+        }
+    },
+    //fix:error:stdin>:7356:1: warning: "@charset" must be the first rule in the file
+    css: {
+        postcss: {
+            plugins: [
+                {
+                    postcssPlugin: 'internal:charset-removal',
+                    AtRule: {
+                        charset: (atRule) => {
+                            if (atRule.name === 'charset') {
+                                atRule.remove();
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
+
+
+})
+
+```
+
+
+## 最后就可以在vue页面中使用XE库
+```vue
+
+<script setup>
+
+import { onMounted } from 'vue'
+const earthRef = ref(null)
+const me = reactive({
+    earth: null,
+    toDelete: [],
+    group: {},
+})
+onMounted(() => {
+    XE.ready().then(() => {
+    me.earth = new XE.Earth(earthRef.value)
+    _init()
+    })
+})
+</script>
+
+```
