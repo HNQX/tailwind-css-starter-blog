@@ -14,7 +14,7 @@ images: []
 
 ```javascript:vite/plugins/earth_evo.js
 import fs from "fs-extra";
-export default function vitePluginEarthsdk() {
+export default function vitePluginEarthsdk(viteEnv) {
     let outDir = "dist";
     let base = "./";
     return {
@@ -50,7 +50,8 @@ export default function vitePluginEarthsdk() {
                 {
                     tag: "script",
                     attrs: {
-                        src: "XbsjEarth/XbsjEarth.js",
+                        src: "XbsjEarth/XbsjEarth.js", // 当然，如果有定义appName的话，需要添加viteEnv.VITE_APP_NAME
+                        // src: '/' + viteEnv.VITE_APP_NAME + "/XbsjEarth/XbsjEarth.js",
                     },
                     injectTo: "head-prepend",
                 },
