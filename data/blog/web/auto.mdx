@@ -12,14 +12,16 @@ images: []
 
 
 ```bash:/home/linx_delete.sh
-#linx_port=123
-#linx_file_root=/home/docker_data/linx/meta/
+
+linx_port=123
+linx_file_root=/home/docker_data/linx/meta/
 
 d=$(cat $linx_file_root$1 | jq -r .delete_key)
 head="Linx-Delete-Key:$d"
 curl -H $head -X DELETE -k https://127.0.0.1:$linx_port/$1
 ```
 
+然后就可以删除图片了
 ```bash
 bash /home/linx_delete.sh aaabbbccc.png
 ```
