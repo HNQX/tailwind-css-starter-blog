@@ -16,3 +16,15 @@ images: []
 >原文链接：https://github.com/CesiumGS/cesium/releases/tag/1.108
 
 ---
+
+
+## 2023年12月27日 lowdb更新7.0.0
+简化语法: 引入 db.update 以便于更新和写入。
+灵活的适配器: 增加了 DataFile 适配器，以支持各种格式，如 YAML、 JSON5等，并增加了一些特性，如使用最少的代码进行加密。
+自动重试: 解决写入错误，特别是对于 Windows 用户。
+
+删除节点16: 停止对节点16的支持。
+一致命名: 为一致性重命名预设:
+ -JSONPreset to JSONFilePreset
+ -JSONSyncPreset to JSONFileSyncPreset.
+>原文链接：https://github.com/typicode/lowdb/releases/tag/v7.0.0
