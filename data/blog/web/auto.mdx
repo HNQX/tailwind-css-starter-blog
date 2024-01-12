@@ -7,11 +7,19 @@ summary: 'Server饭与linx-server的结合，让你使用微信来管理你的�
 images: []
 ---
 
-```bash
+
+## 删除某个文件
+
+
+```bash:/home/linx_delete.sh
 #linx_port=123
 #linx_file_root=/home/docker_data/linx/meta/
 
 d=$(cat $linx_file_root$1 | jq -r .delete_key)
 head="Linx-Delete-Key:$d"
 curl -H $head -X DELETE -k https://127.0.0.1:$linx_port/$1
+```
+
+```bash
+bash /home/linx_delete.sh aaabbbccc.png
 ```
