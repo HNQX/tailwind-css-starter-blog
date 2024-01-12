@@ -1,0 +1,17 @@
+---
+title: '[施工中]Server饭与linx-server自动脚本'
+date: '2023-12-07'
+tags: ['web','nas','linx-server','Server饭']
+draft: false
+summary: 'Server饭与linx-server的结合，让你使用微信来管理你的文件'
+images: []
+---
+
+```bash
+#linx_port=123
+#linx_file_root=/home/docker_data/linx/meta/
+
+d=$(cat $linx_file_root$1 | jq -r .delete_key)
+head="Linx-Delete-Key:$d"
+curl -H $head -X DELETE -k https://127.0.0.1:$linx_port/$1
+```
