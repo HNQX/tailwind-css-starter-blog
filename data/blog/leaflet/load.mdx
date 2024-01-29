@@ -1,0 +1,42 @@
+---
+title: 'Leaflet加载各种类型的底图服务'
+date: '2023-01-26'
+tags: ['leaflet','map','geoserver','wmts']
+draft: false
+summary: 'Leaflet以WMTS方式加载Geoserver发布的切片服务'
+images: []
+---
+
+## Leaflet加载geoserver发布的wmts服务
+Geoserver默认切片格式为EPSG:4326:{n}，如EPSG:4326:1、EPSG:4326:2、EPSG:4326:3、...，leaflet默认加载matrixID为{n}，如1、2、3、...，所以需要先进行处理
+如下图:
+<Image src="https://52152121.xyz:802/s/3tn1emgt.png"/>
+
+这里需要用到leaflet.tilelayer.wmts插件，请去[github](https://github.com/alexandre-melard/leaflet.TileLayer.WMTS)
+```javascript
+        const map = L.map('map', { crs: L.CRS.EPSG4326, center: [31.3, 120.5], zoom: 8, attributionControl: false }) //crs要设置为跟geoserver切片相同的坐标系
+
+        const url = "http://1.2.3.4:8080/geoserver/mylayer1/gwc/service/wmts" // 改wmts服务对应的Geoserver地址
+        const layerIGNScanStd = "mylayer1:ws1" // 图层名
+        const matrixIds = []
+        for (var i = 0; i < 22; ++i) {
+            matrixIds[i] = { identifier: "" + i, topLeftCorner: new L.LatLng(90, -180) }
+        }
+        const ign = new L.TileLayer.WMTS(url, { layer: layerIGNScanStd, style: '', tilematrixSet: "EPSG:4326", format: 'image/png', matrixIds: matrixIds })
+        map.addLayer(ign)
+```
+
+
+## Leaflet加载Arcgis的矢量图
+
+```javascript:mapConfig.js
+    export const ARCGIS_MAP_ID = '40b0b506febc4f2fbb512ae5fd2475b4'
+    export const ARCGIS_TOKEN = 'AAPK4db33e78b0234a62a8e764821f1a4ca2h06juJ_ovQnkrHxoIV7Tr1fwEZjugkBMn4ogfp0t1erCAsLn4UU0M4la4RNYCaA2'
+```
+
+```javascript
+import * as Vector from 'esri-leaflet-vector'
+L.Vector = Vector
+
+    L.Vector.vectorBasemapLayer(ARCGIS_MAP_ID, { apiKey: ARCGIS_TOKEN }).addTo(map)
+```
