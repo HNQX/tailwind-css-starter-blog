@@ -15,16 +15,16 @@ Geoserver默认切片格式为EPSG:4326:n，如EPSG:4326:1、EPSG:4326:2、EPSG:
 这里需要用到leaflet.tilelayer.wmts插件，请去[github](https://github.com/alexandre-melard/leaflet.TileLayer.WMTS)
 
 ```javascript
-        const map = L.map('map', { crs: L.CRS.EPSG4326, center: [31.3, 120.5], zoom: 8, attributionControl: false }) //crs要设置为跟geoserver切片相同的坐标系
+    const map = L.map('map', { crs: L.CRS.EPSG4326, center: [31.3, 120.5], zoom: 8, attributionControl: false }) //crs要设置为跟geoserver切片相同的坐标系
 
-        const url = "http://1.2.3.4:8080/geoserver/mylayer1/gwc/service/wmts" // 改wmts服务对应的Geoserver地址
-        const layerIGNScanStd = "mylayer1:ws1" // 图层名
-        const matrixIds = []
-        for (var i = 0; i < 22; ++i) {
-            matrixIds[i] = { identifier: "" + i, topLeftCorner: new L.LatLng(90, -180) }
-        }
-        const ign = new L.TileLayer.WMTS(url, { layer: layerIGNScanStd, style: '', tilematrixSet: "EPSG:4326", format: 'image/png', matrixIds: matrixIds })
-        map.addLayer(ign)
+    const url = "http://1.2.3.4:8080/geoserver/mylayer1/gwc/service/wmts" // 改wmts服务对应的Geoserver地址
+    const layerIGNScanStd = "mylayer1:ws1" // 图层名
+    const matrixIds = []
+    for (var i = 0; i < 22; ++i) {
+        matrixIds[i] = { identifier: "" + i, topLeftCorner: new L.LatLng(90, -180) }
+    }
+    const ign = new L.TileLayer.WMTS(url, { layer: layerIGNScanStd, style: '', tilematrixSet: "EPSG:4326", format: 'image/png', matrixIds: matrixIds })
+    map.addLayer(ign)
 ```
 
 
