@@ -1,0 +1,22 @@
+---
+title: '常用linux与windows脚本'
+date: '2024-01-31'
+tags: ['css','web']
+draft: false
+summary: '经常会用到的linux与windows脚本命令'
+images: []
+---
+
+
+
+## windows下删除remote desktop历史记录
+
+```bat:delete_rdp.bat
+    @echo off
+    reg delete "HKEY_CURRENT_USER\Software\Microsoft\Terminal Server Client\Default" /va /f
+    reg delete "HKEY_CURRENT_USER\Software\Microsoft\Terminal Server Client\Servers" /f
+    reg add "HKEY_CURRENT_USER\Software\Microsoft\Terminal Server Client\Servers"
+    attrib -s -h %userprofile%\documents\Default.rdp
+    del %userprofile%\documents\Default.rdp
+    del /f /s /q /a %AppData%\Microsoft\Windows\Recent\AutomaticDestinations
+```
