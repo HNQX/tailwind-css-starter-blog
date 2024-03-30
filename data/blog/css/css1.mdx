@@ -1,0 +1,54 @@
+---
+title: '使用css技巧'
+date: '2024-03-30'
+tags: ['css','web']
+draft: false
+summary: '常用CSS'
+images: []
+---
+
+
+
+## 鼠标悬停图片放大效果
+```html
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试</title>
+    <style>
+        .box {
+            border: 5px solid black;
+            width: 400px;
+            height: 400px;
+            margin: 100px auto;
+            /* 设置溢出隐藏 */
+            overflow: hidden;
+        }
+ 
+        .box img {
+            width: 100%;
+            height: 100%;
+            /* 设置放大比例 */
+            transform: scale(1);
+            /* 给图片添加过渡效果 */
+            transition: all 1s;
+        }
+ 
+        .box img:hover {
+            /* 修改放大比例 */
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+ 
+<body>
+    <div class="box">
+        <img src="./1.png" alt="">
+    </div>
+</body>
+ 
+</html>
+```
