@@ -1,0 +1,23 @@
+---
+title: '使用scss技巧'
+date: '2024-04-22'
+tags: ['scss','css','web']
+draft: false
+summary: '常用SCSS'
+images: []
+---
+
+
+# 使用js控制scss变量
+> 在全局控制主题时，也许会涉及到此点
+
+
+
+````scss
+$all-base-bgcolor: var(--all-base-bgcolor, #060e22); // 使用变量赋值给&all-base-bgcolor，加上默认颜色
+````
+
+接下来就可以在body的样式表中，更改css的变量值
+````javascript
+document.body.style.setProperty('--all-base-bgcolor', '#66ccff')
+````
