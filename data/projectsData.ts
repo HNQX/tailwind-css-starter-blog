@@ -9,7 +9,7 @@ const projectsData = [
     title: 'Shortiny',
     description: `短网址&管理`,
     imgSrc: '/static/images/shortiny.png',
-    href: 'https://url3.fun',
+    href: 'https://22222223.xyz',
   },
 ]
 
