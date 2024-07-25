@@ -1,0 +1,61 @@
+---
+title: '地图常用'
+date: '2024-07-25'
+tags: ['web','map','proj4']
+draft: false
+summary: '地图常用'
+images: []
+---
+
+
+## 使用proj4求两线交点
+使用turfJS求交点的时候，遇到一个交点不在两线上的问题，详见[这里的issue](https://github.com/Turfjs/turf/issues/2660)，原因大概是经纬度计算的误差，投影坐标和地理坐标各有优势，投影坐标更适合用来计算
+因此，使用proj4将坐标转换成投影坐标后在计算，可达到精准的计算结果
+
+
+````javascript
+        const line1 = [
+            [120.179402, 31.247428, 0],
+            [120.700497, 31.365937, 0]
+        ]
+
+        const line2 = [
+            [120.445638, 31.381745, 0],
+            [121.033588, 31.055778, 0],
+            [121.094159, 31.046175, 0],
+            [121.167627, 31.042088, 0]
+        ]
+
+        const point = intesection(line1, line2)
+
+        console.log(point);
+
+        function intesection(line1, line2) {
+
+            const mercator = proj4("EPSG:4326", "EPSG:3857");
+
+            // Convert the lines to Mercator coordinates
+            const line1Mercator = line1.map(i => mercator.forward(i))
+            const line2Mercator = line2.map(i => mercator.forward(i))
+
+            // Define the lines in the form y = mx + b
+            const m1 =
+                (line1Mercator[1][1] - line1Mercator[0][1]) /
+                (line1Mercator[1][0] - line1Mercator[0][0]);
+            const b1 = line1Mercator[0][1] - m1 * line1Mercator[0][0];
+
+            const m2 =
+                (line2Mercator[1][1] - line2Mercator[0][1]) /
+                (line2Mercator[1][0] - line2Mercator[0][0]);
+            const b2 = line2Mercator[0][1] - m2 * line2Mercator[0][0];
+
+            // Find the intersection point
+            const x = (b2 - b1) / (m1 - m2);
+            const y = m1 * x + b1;
+
+            // Convert the intersection point back to geographic coordinates
+            const intersection = mercator.inverse([x, y]);
+
+            return intersection
+        }
+````
