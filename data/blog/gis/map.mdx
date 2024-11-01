@@ -59,3 +59,42 @@ images: []
             return intersection
         }
 ````
+
+
+
+## 度分秒转经纬度
+
+````javascript
+        const data = window.prompt()
+        const coordinatesArray = data.split('、')
+
+        const regex = /E(\d+)°(\d+)′(\d+)″N(\d+)°(\d+)′(\d+)″/
+
+        const result = {}
+        coordinatesArray.forEach((coordinate, index) => {
+            const match = coordinate.match(regex)
+            if (match) {
+                const longitudeDegree = parseInt(match[1])
+                const longitudeMinute = parseInt(match[2])
+                const longitudeSecond = parseInt(match[3])
+                const latitudeDegree = parseInt(match[4])
+                const latitudeMinute = parseInt(match[5])
+                const latitudeSecond = parseInt(match[6])
+
+                result[index] = {
+                    decimal: coordinate,
+                    radian: [decimalToRadian(longitudeDegree, longitudeMinute, longitudeSecond), decimalToRadian(latitudeDegree, latitudeMinute, latitudeSecond)]
+                }
+
+                // console.log(coordinate);
+                // console.log("经度：", longitudeDegree, "°", longitudeMinute, "′", longitudeSecond, "″")
+                // console.log("纬度：", latitudeDegree, "°", latitudeMinute, "′", latitudeSecond, "″")
+            }
+        })
+
+        console.log(result)
+
+
+
+        function decimalToRadian(a, b, c) { return a + (b / 60) + (c / 3600) }
+````
