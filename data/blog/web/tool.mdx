@@ -27,3 +27,32 @@ images: []
     del %userprofile%\documents\Default.rdp
     del /f /s /q /a %AppData%\Microsoft\Windows\Recent\AutomaticDestinations
 ````
+
+
+
+## windows 自动启动脚本
+
+自动php启动，自动nginx启动
+````code
+    @echo off
+    REM Windows 下无效
+    REM set PHP_FCGI_CHILDREN=5
+    REM 每个进程处理的最大请求数，或设置为 Windows 环境变量
+    set PHP_FCGI_MAX_REQUESTS=1000
+    echo Starting PHP FastCGI...
+    C:\Users\MINI\Documents\SOFT\nginx-1.24.0\RunHiddenConsole C:\Users\MINI\Documents\SOFT\nginx-1.24.0\xxfpm.exe "C:/Users/MINI/Documents/SOFT/php82/php-cgi.exe -c C:/Users/MINI/Documents/SOFT/php82/php.ini" -n 5 -i 127.0.0.1 -p 9000
+    echo Starting nginx...
+    C:\Users\MINI\Documents\SOFT\nginx-1.24.0\RunHiddenConsole C:\Users\MINI\Documents\SOFT\nginx-1.24.0\nginx.exe -p C:\Users\MINI\Documents\SOFT\nginx-1.24.0\
+    exit
+````
+
+停止脚本
+
+````code
+    @echo off
+    echo Stopping nginx...
+    taskkill /F /IM nginx.exe > nul
+    echo Stopping PHP FastCGI...
+    taskkill /F /IM xxfpm.exe > nul
+    exit
+````
