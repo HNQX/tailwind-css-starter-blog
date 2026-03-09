@@ -1,0 +1,93 @@
+---
+title: '使用powershell发送memos'
+date: '2024-07-23'
+tags: ['web','实用','memos','windows']
+draft: false
+summary: '实用小技巧'
+images: []
+---
+
+## windows 打开配置
+```powershell
+NOTEPAD $PROFILE
+```
+
+## 输入下面的代码
+````powershell
+# 1. 基础环境
+Add-Type -AssemblyName System.Net.Http
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
+
+# 2. 配置
+$env:MEMOS_URI = 'https://abc.cc'
+$env:MEMOS_TOKEN = 'abc'
+
+
+# 3. 核心发送逻辑
+function memos {
+    param([Parameter(Mandatory=$true, ValueFromPipeline=$true)][string]$content)
+
+    $uri = $env:MEMOS_URI.TrimEnd('/') + "/api/v1/memos"
+    $json = @{ content = $content } | ConvertTo-Json -Depth 100 -Compress
+    
+    $httpClient = New-Object System.Net.Http.HttpClient
+    $httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer $env:MEMOS_TOKEN")
+    $httpClient.DefaultRequestHeaders.Add("Accept", "application/json")
+    $httpContent = New-Object System.Net.Http.StringContent($json, [System.Text.Encoding]::UTF8, "application/json")
+
+    try {
+        $response = $httpClient.PostAsync($uri, $httpContent).Result
+        if ($response.IsSuccessStatusCode) {
+            Write-Host "$([char]0x2705) 发送成功！(长度: $($content.Length) 字符)" -ForegroundColor Green
+        } else {
+            $errBody = $response.Content.ReadAsStringAsync().Result
+            # 如果是长度错误，给出特别提示
+            if ($errBody -like "*too long*") {
+                Write-Host ">>> [失败] 内容超过 Memos 限制 (81920字符)。当前: $($content.Length)" -ForegroundColor Red
+            } else {
+                Write-Host ">>> 服务器拒绝: $errBody" -ForegroundColor Yellow
+            }
+        }
+    } finally {
+        $httpClient.Dispose()
+    }
+}
+
+# 4. 增强版剪贴板函数
+function mclip {
+    param(
+        [Parameter(Position=0)][string]$lang = "javascript",
+        [Parameter(Position=1)][string]$tag = "剪贴板"
+    )
+
+    $clipText = Get-Clipboard -Raw
+    if (-not $clipText -or $clipText.Trim() -eq "") {
+        Write-Host ">>> [取消] 剪贴板里没东西。" -ForegroundColor Gray
+        return
+    }
+
+    # 构造 Markdown 结构
+    $ticks = '```'
+    $finalContent = $ticks + $lang + "`n" + $clipText.TrimEnd() + "`n" + $ticks + "`n`n#$tag"
+
+    # 长度检查提示 (Memos 默认限制 81920)
+    if ($finalContent.Length -gt 81920) {
+        Write-Host ">>> [警告] 总长度 $($finalContent.Length) 已超过 Memos 限制，可能发送失败！" -ForegroundColor Yellow
+    }
+
+    memos -content $finalContent
+}
+
+# 5. 常用别名设置
+Set-Alias -Name mc -Value mclip             # 默认发送 (JS)
+function mpy { mclip -lang python };       Set-Alias -Name mpy -Value mpy   # Python 快捷键
+function msql { mclip -lang sql };         Set-Alias -Name ms -Value msql  # SQL 快捷键
+function mtxt { mclip -lang text -tag 记事 }; Set-Alias -Name mt -Value mtxt  # 纯文本快捷键
+
+````
+
+## 记得用下面命令来更新配置（或者重启powershell）
+```powershell
+. $PROFILE
+```
