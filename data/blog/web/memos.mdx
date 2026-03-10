@@ -16,7 +16,7 @@ if (!(Test-Path $PROFILE)) { New-Item -Type File -Path $PROFILE -Force }
 
 ```
 
-## 输入下面的代码
+## 输入下面的代码，并且```保证ps1文件保存为UTF8-BOM编码```
 ````powershell
 # 1. 基础环境
 Add-Type -AssemblyName System.Net.Http
