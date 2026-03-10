@@ -10,6 +10,10 @@ images: []
 ## windows 打开配置
 ```powershell
 NOTEPAD $PROFILE
+
+# 如果提示打不开指定路径，请先运行下面的代码
+if (!(Test-Path $PROFILE)) { New-Item -Type File -Path $PROFILE -Force }
+
 ```
 
 ## 输入下面的代码
